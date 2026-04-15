@@ -50,9 +50,9 @@ Declared values (multiples of 4):
 | Token | Value | CSS Custom Property | Usage |
 |-------|-------|---------------------|-------|
 | nav-height | 64px | `--nav-height` | Navigation bar height (also defines layout top offset) |
-| touch-target | 44px | `--touch-target` | Minimum hit area for hamburger button (mobile) |
+| touch-target | 48px | `--touch-target` | Minimum hit area for hamburger button (mobile); 48px exceeds WCAG 2.5.5 minimum of 44px and aligns to the standard spacing set |
 
-Exceptions: `--nav-height` (64px) and `--touch-target` (44px) are non-standard values for specific component needs.
+Exceptions: `--nav-height` (64px) is a non-standard value for a specific component need. `--touch-target` (48px) maps to `--space-2xl` in the standard scale.
 
 **Source:** Discretion (CONTEXT.md Claude's Discretion — spacing scale and nav height are explicitly delegated)
 
@@ -69,16 +69,15 @@ All text uses `font-family: 'Neue Haas Unica', system-ui, sans-serif`.
 | Heading | 24px | Bold | 700 | 1.2 | `--font-size-lg` |
 | Display | 40px | Bold | 700 | 1.1 | `--font-size-xl` |
 
-**CSS custom properties for weights:**
+**CSS custom properties for weights declared in Phase 1:**
 
 | Role | Weight | CSS Custom Property | File |
 |------|--------|---------------------|------|
 | Body / default | 400 | `--font-weight-regular` | `NeueHaasUnica-Regular.woff2` |
 | Nav links, labels, captions | 500 | `--font-weight-medium` | `NeueHaasUnica-Medium.woff2` |
-| Headings, project titles | 700 | `--font-weight-bold` | `NeueHaasUnica-Bold.woff2` |
 | Emphasis, pull quotes | 400 italic | `--font-weight-regular` + `font-style: italic` | `NeueHaasUnica-Italic.woff2` |
 
-**Declared font weights in this phase: 400 (Regular) and 500 (Medium).** Bold (700) is declared in tokens for Phase 2 use but the nav uses Medium only.
+**Declared font weights in Phase 1: 400 (Regular) and 500 (Medium) only.** Bold (700) is deferred to Phase 2 — the nav uses Medium only. `--font-weight-bold` will be declared in Phase 2's UI-SPEC and tokens.css update.
 
 **Source:** CONTEXT.md D-01, D-02, D-03
 
@@ -109,6 +108,8 @@ All text uses `font-family: 'Neue Haas Unica', system-ui, sans-serif`.
 ## Component Inventory
 
 ### Nav Component (`src/components/Nav.astro`)
+
+**Visual hierarchy:** The nav logo/name is the primary focal point; nav links (Work, About) are secondary and visually subordinate in weight and scale.
 
 **Structure:**
 ```
@@ -162,7 +163,6 @@ All tokens declared in `src/styles/tokens.css`. Imported globally in the root la
 --font-size-xl:   40px;
 --font-weight-regular: 400;
 --font-weight-medium:  500;
---font-weight-bold:    700;
 --line-height-body:    1.5;
 --line-height-heading: 1.2;
 --line-height-display: 1.1;
@@ -186,7 +186,7 @@ All tokens declared in `src/styles/tokens.css`. Imported globally in the root la
 
 /* Component */
 --nav-height:    64px;
---touch-target:  44px;
+--touch-target:  48px;
 ```
 
 ---
