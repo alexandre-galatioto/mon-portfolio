@@ -28,7 +28,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. On mobile, the navigation collapses into a hamburger menu
   4. Adding a new Markdown file in the projects collection makes a new project available without any code changes
   5. The Astro build outputs static HTML/CSS only — no client-side JS bundle, no analytics scripts
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 01-01-PLAN.md — Astro scaffold, content collections, design tokens, global CSS
+- [ ] 01-02-PLAN.md — BaseLayout, Nav component (scroll hide/show + mobile hamburger), index stub
 **UI hint**: yes
 
 ### Phase 2: Content Pages
@@ -62,6 +65,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/TBD | Not started | - |
+| 1. Foundation | 0/2 | Not started | - |
 | 2. Content Pages | 0/TBD | Not started | - |
 | 3. Responsive, Performance & Deploy | 0/TBD | Not started | - |
