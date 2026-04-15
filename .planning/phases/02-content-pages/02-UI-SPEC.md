@@ -62,9 +62,11 @@ All tokens carry forward from Phase 1. Phase 2 adds Bold (700) weight for projec
 | Role | Size | Weight | CSS Weight | Line Height | Usage in Phase 2 |
 |------|------|--------|------------|-------------|------------------|
 | Body | 16px `--font-size-base` | Regular | 400 | 1.5 | Project description, bio text, footer text |
-| Label | 14px `--font-size-sm` | Medium | 500 | 1.4 | Project type label, "View project" link, social links, prev/next label |
+| Label | 14px `--font-size-sm` | Regular | 400 | 1.4 | Project type label, "View project" link, social links, prev/next link text |
 | Heading | 24px `--font-size-lg` | Bold | 700 | 1.2 | Project page title (h1), about page section heading |
 | Display | 40px `--font-size-xl` | Bold | 700 | 1.1 | Reserved — not used in Phase 2 |
+
+**Two weights only:** `--font-weight-regular` (400) and `--font-weight-bold` (700). No medium weight is used in Phase 2. All label-level elements (project type, "View project" link, prev/next link text, social links) use Regular (400) to preserve clear Bold/Regular contrast for headings vs. body and labels.
 
 **Bold weight addition for Phase 2:**
 
@@ -86,11 +88,11 @@ Add to `src/styles/tokens.css`:
 
 **Project metadata 2-column text section typography:**
 - Left column — project name: `--font-size-lg` (24px), `--font-weight-bold` (700), `--line-height-heading` (1.2)
-- Left column — project type: `--font-size-sm` (14px), `--font-weight-medium` (500), `--color-text-muted`, margin-top `--space-xs` (4px)
+- Left column — project type: `--font-size-sm` (14px), `--font-weight-regular` (400), `--color-text-muted`, margin-top `--space-xs` (4px)
 - Right column — description: `--font-size-base` (16px), `--font-weight-regular` (400), `--line-height-body` (1.5)
-- Right column — live demo link: `--font-size-sm` (14px), `--font-weight-medium` (500), `--color-text`, underline on hover
+- Right column — live demo link: `--font-size-sm` (14px), `--font-weight-regular` (400), `--color-text`, underline on hover
 
-**Source:** Phase 1 UI-SPEC (typography table carry-forward); Phase 1 CONTEXT.md D-02 (Bold deferred to Phase 2); CONTEXT.md D-08 (2-column text section); Claude's discretion (exact size assignments for metadata columns)
+**Source:** Phase 1 UI-SPEC (typography table carry-forward); Phase 1 CONTEXT.md D-02 (Bold deferred to Phase 2); CONTEXT.md D-08 (2-column text section); Claude's discretion (exact size assignments for metadata columns); revision fix (medium weight removed, reassigned to regular)
 
 ---
 
@@ -121,6 +123,8 @@ All tokens carry forward from Phase 1 unchanged.
 ## Component Inventory
 
 ### Home Page Grid (`src/pages/index.astro`)
+
+**Focal point:** The cover image grid is the sole visual anchor — no competing elements on the page.
 
 **Structure:**
 ```
@@ -201,7 +205,7 @@ All tokens carry forward from Phase 1 unchanged.
 - Layout: CSS Grid `grid-template-columns: 1fr 1fr` on desktop; single column on mobile (left column stacks above right column)
 - Top/bottom padding: `var(--space-2xl)` (48px) above and below the section
 - Column gap: `var(--space-xl)` (32px)
-- Left column: project name (`--font-size-lg`, bold, `--line-height-heading`), project type below (`--font-size-sm`, medium, `--color-text-muted`, `margin-top: var(--space-xs)`)
+- Left column: project name (`--font-size-lg`, bold, `--line-height-heading`), project type below (`--font-size-sm`, regular, `--color-text-muted`, `margin-top: var(--space-xs)`)
 - Right column: description (`--font-size-base`, regular, `--line-height-body`), optional live demo link below with `margin-top: var(--space-md)` (16px)
 - Live demo link label: "View project" — underline decoration, no icon
 - Live demo link hidden entirely if `liveUrl` is absent (REQUIREMENTS.md PROJ-05)
@@ -216,7 +220,7 @@ All tokens carry forward from Phase 1 unchanged.
 **Visual spec — Prev/next navigation:**
 - Layout: flexbox row, `justify-content: space-between`
 - Padding: `var(--space-2xl)` (48px) top and bottom, `var(--space-xl)` (32px) inline
-- Font: `--font-size-sm` (14px), `--font-weight-medium` (500), `--color-text`
+- Font: `--font-size-sm` (14px), `--font-weight-regular` (400), `--color-text`
 - Hover: text underline `2px solid var(--color-accent)` below the project name
 - Prev link left-aligned; Next link right-aligned
 - If no previous project: prev slot is empty; if no next project: next slot is empty
@@ -256,7 +260,7 @@ All tokens carry forward from Phase 1 unchanged.
 - Top padding: `var(--space-3xl)` (64px) below the nav
 - Portrait image: fills left column width, `object-fit: cover`, no fixed aspect ratio (natural image proportions)
 - Bio text: `--font-size-base` (16px), regular 400, `--line-height-body` (1.5)
-- Social links: `--font-size-sm` (14px), `--font-weight-medium` (500), `--color-text`, underline decoration, `margin-top: var(--space-lg)` (24px) from bio text bottom
+- Social links: `--font-size-sm` (14px), `--font-weight-regular` (400), `--color-text`, underline decoration, `margin-top: var(--space-lg)` (24px) from bio text bottom
 - Link labels: "LinkedIn" and "Instagram" — plain text, no icons, no arrow glyphs
 - No CTA, no contact form (REQUIREMENTS.md ABOUT-04)
 - Mobile collapse: below `640px`, portrait stacks above content column at full width
@@ -368,7 +372,7 @@ Add to `src/styles/global.css` (after existing @font-face blocks):
 }
 ```
 
-No other new tokens. All existing Phase 1 tokens are sufficient for Phase 2.
+No other new tokens. `--font-weight-medium` (500) is not used in Phase 2 — all label-level elements use `--font-weight-regular` (400). All existing Phase 1 tokens are sufficient for Phase 2.
 
 ---
 
