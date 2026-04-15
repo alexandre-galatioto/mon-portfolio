@@ -23,5 +23,20 @@ const { title, description = 'Art director portfolio' } = Astro.props;
     <main>
       <slot />
     </main>
+    <footer class="site-footer">
+      <p>Alexandre Galatioto &copy;2026</p>
+    </footer>
   </body>
 </html>
+
+<style>
+  .site-footer {
+    background-color: var(--color-surface);
+    padding-block: var(--space-lg);
+    padding-inline: var(--space-xl);
+    text-align: center;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-muted);
+  }
+</style>
