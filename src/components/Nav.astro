@@ -1,0 +1,226 @@
+---
+// src/components/Nav.astro
+// No imports needed — pure HTML/CSS/inline script
+---
+
+<nav class="site-nav" id="site-nav">
+  <a href="/" class="nav-logo">Alexandre Galatioto</a>
+  <ul class="nav-links">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="nav-hamburger">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+</nav>
+
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+  <button class="nav-close" aria-label="Close menu" id="nav-close">
+    <span class="bar bar--close-1"></span>
+    <span class="bar bar--close-2"></span>
+  </button>
+  <ul class="overlay-links">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</div>
+
+<style>
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    padding: 0 var(--space-lg);
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 200ms ease;
+  }
+
+  .site-nav.nav--hidden {
+    transform: translateY(calc(-1 * var(--nav-height)));
+  }
+
+  .nav-logo {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: var(--space-lg);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .nav-links a:hover {
+    opacity: 0.6;
+  }
+
+  /* Active link underline */
+  .nav-links a[aria-current="page"] {
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 2px;
+  }
+
+  /* Hamburger — hidden on desktop */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-sm);
+    width: var(--touch-target);
+    height: var(--touch-target);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+  }
+
+  /* Overlay */
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 150ms ease, visibility 150ms ease;
+  }
+
+  .nav-overlay.overlay--open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .overlay-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+
+  .overlay-links a {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .nav-close {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    width: var(--touch-target);
+    height: var(--touch-target);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bar--close-1 {
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    transform: rotate(45deg);
+  }
+
+  .bar--close-2 {
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    transform: rotate(-45deg);
+  }
+
+  /* Mobile breakpoint */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .nav-hamburger {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  // Scroll hide / show (NAV-02)
+  const nav = document.getElementById('site-nav');
+  let lastScrollY = window.scrollY;
+  const SCROLL_THRESHOLD = 80;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY <= 0) {
+      nav?.classList.remove('nav--hidden');
+    } else if (currentScrollY > lastScrollY && currentScrollY > SCROLL_THRESHOLD) {
+      nav?.classList.add('nav--hidden');
+    } else if (currentScrollY < lastScrollY) {
+      nav?.classList.remove('nav--hidden');
+    }
+
+    lastScrollY = currentScrollY;
+  }, { passive: true });
+
+  // Mobile overlay toggle (NAV-03)
+  const hamburger = document.getElementById('nav-hamburger');
+  const overlay = document.getElementById('nav-overlay');
+  const closeBtn = document.getElementById('nav-close');
+
+  function openMenu() {
+    overlay?.classList.add('overlay--open');
+    overlay?.setAttribute('aria-hidden', 'false');
+    hamburger?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    overlay?.classList.remove('overlay--open');
+    overlay?.setAttribute('aria-hidden', 'true');
+    hamburger?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  hamburger?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+
+  // Close on overlay link click
+  overlay?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>
