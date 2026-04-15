@@ -1,0 +1,39 @@
+/* src/styles/tokens.css */
+/* Design tokens for Art Director Portfolio
+   Source of truth: .planning/phases/01-foundation/01-UI-SPEC.md
+   All components inherit via global.css -> tokens.css chain */
+
+:root {
+  /* Typography */
+  --font-family-base:      'Neue Haas Unica', system-ui, sans-serif;
+  --font-size-sm:          14px;
+  --font-size-base:        16px;
+  --font-size-lg:          24px;
+  --font-size-xl:          40px;
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --line-height-body:      1.5;
+  --line-height-heading:   1.2;
+  --line-height-display:   1.1;
+
+  /* Color */
+  --color-bg:              #FFFFFF;
+  --color-surface:         #F5F5F5;
+  --color-text:            #111111;
+  --color-text-muted:      #999999;
+  --color-accent:          #111111;
+  --color-destructive:     #CC0000;
+
+  /* Spacing */
+  --space-xs:              4px;
+  --space-sm:              8px;
+  --space-md:              16px;
+  --space-lg:              24px;
+  --space-xl:              32px;
+  --space-2xl:             48px;
+  --space-3xl:             64px;
+
+  /* Component */
+  --nav-height:            64px;
+  --touch-target:          48px;
+}
