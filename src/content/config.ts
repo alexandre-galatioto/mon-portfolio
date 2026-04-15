@@ -9,13 +9,17 @@ const projects = defineCollection({
     images:      z.array(z.string()),
     order:       z.number(),
     liveUrl:     z.string().url().optional(),
-    featured:    z.boolean().default(false),
+    type:        z.string(),
   }),
 });
 
 const about = defineCollection({
   type: 'content',
-  schema: z.object({}),
+  schema: z.object({
+    portrait:     z.string(),
+    linkedinUrl:  z.string().url().optional(),
+    instagramUrl: z.string().url().optional(),
+  }),
 });
 
 export const collections = { projects, about };

@@ -6,7 +6,7 @@ images:
   - "/images/projects/flux/01.jpg"
   - "/images/projects/flux/02.jpg"
 order: 2
-featured: false
+type: "Editorial Design"
 ---
 
 Extended project description for the Flux Magazine editorial design. This content will be rendered on the project detail page in Phase 2.
