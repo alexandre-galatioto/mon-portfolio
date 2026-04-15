@@ -13,7 +13,7 @@ Three phases deliver a live, production-quality portfolio site. Phase 1 establis
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Foundation** - Astro scaffold, content model, navigation shell, and design system
-- [ ] **Phase 2: Content Pages** - Home, project, and about pages fully built with images
+- [x] **Phase 2: Content Pages** - Home, project, and about pages fully built with images (completed 2026-04-15)
 - [ ] **Phase 3: Responsive, Performance & Deploy** - Cross-device polish, load validation, and live deployment
 
 ## Phase Details
@@ -49,7 +49,7 @@ Plans:
 - [x] 02-01-PLAN.md — Schema updates, sample content, Bold font token, global footer
 - [x] 02-02-PLAN.md — Home page image grid and about page
 - [x] 02-03-PLAN.md — Project detail page with dynamic routing, gallery, prev/next nav
-- [ ] 02-04-PLAN.md — Gap closure: HOME-05 override + gallery Image component (PROJ-03)
+- [x] 02-04-PLAN.md — Gap closure: HOME-05 override + gallery Image component (PROJ-03)
 **UI hint**: yes
 
 ### Phase 3: Responsive, Performance & Deploy
@@ -71,5 +71,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete | - |
-| 2. Content Pages | 3/4 | In Progress|  |
+| 2. Content Pages | 4/4 | Complete   | 2026-04-15 |
 | 3. Responsive, Performance & Deploy | 0/TBD | Not started | - |
