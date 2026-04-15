@@ -20,19 +20,17 @@ Make recruiters immediately understand they are looking at a seasoned, serious p
 
 ### Active
 
-- [ ] Home page with full-width project list (one project per row, large image + title)
-- [ ] Individual project pages with title, description text, and images
-- [ ] Some project pages include a link to a live demo
-- [ ] About page with bio text and contact links (LinkedIn + Instagram)
-- [ ] Disappear-on-scroll navigation (reappears on scroll up), minimal top bar
 - [ ] Fully responsive across all devices (mobile, tablet, desktop)
-- [ ] White / minimal visual design — images do the talking
-- [ ] Projects managed via Markdown files (content editable without touching code)
-- [ ] Astro SSG output (`output: 'static'`) — pure HTML/CSS, no runtime
-- [ ] Built-in image optimization (WebP, responsive srcset, lazy loading via Astro's Image component)
 - [ ] Page load under 2 seconds
-- [ ] No analytics, no tracking
 - [ ] No calls to action
+
+### Validated in Phase 2: Content Pages
+
+- [x] Home page with full-width project list (images-only grid per D-02 decision) — Validated in Phase 2: Content Pages
+- [x] Individual project pages with title, description text, and images — Validated in Phase 2: Content Pages
+- [x] Some project pages include a link to a live demo — Validated in Phase 2: Content Pages
+- [x] About page with bio text and contact links (LinkedIn + Instagram) — Validated in Phase 2: Content Pages
+- [x] Built-in image optimization (WebP, responsive srcset, lazy loading via Astro's Image component) — Validated in Phase 2: Content Pages (scaffolded with Image component; full optimization activates with src/assets/ images)
 
 ### Out of Scope
 
@@ -89,4 +87,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-15 after Phase 1 (Foundation) completion*
+*Last updated: 2026-04-15 after Phase 2 (Content Pages) completion*
