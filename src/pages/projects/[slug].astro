@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  const sorted = projects.sort((a, b) => a.data.order - b.data.order);
+  return sorted.map((entry, index) => ({
+    params: { slug: entry.slug },
+    props: {
+      entry,
+      prev: sorted[index - 1] ?? null,
+      next: sorted[index + 1] ?? null,
+    },
+  }));
+}
+
+const { entry, prev, next } = Astro.props;
+const { data } = entry;
+---
+
+<BaseLayout title={`${data.title} — Alexandre Galatioto`} description={data.description}>
+  <div class="project-cover">
+    <img src={data.cover} alt={data.title} loading="eager" />
+  </div>
+
+  <section class="project-meta">
+    <div class="project-meta__left">
+      <h1>{data.title}</h1>
+      <p class="project-type">{data.type}</p>
+    </div>
+    <div class="project-meta__right">
+      <p>{data.description}</p>
+      {data.liveUrl && (
+        <a
+          href={data.liveUrl}
+          class="project-demo-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`View ${data.title} project (opens in new tab)`}
+        >
+          View project
+        </a>
+      )}
+    </div>
+  </section>
+
+  <div class="project-gallery">
+    {data.images.map((src) => (
+      <img src={src} alt="" loading="lazy" />
+    ))}
+  </div>
+
+  <nav class="project-nav" aria-label="Project navigation">
+    {prev && (
+      <a href={`/projects/${prev.slug}`} class="project-nav__prev">
+        {prev.data.title}
+      </a>
+    )}
+    {next && (
+      <a href={`/projects/${next.slug}`} class="project-nav__next">
+        {next.data.title}
+      </a>
+    )}
+  </nav>
+</BaseLayout>
+
+<style>
+  .project-cover {
+    margin-inline: var(--space-xl);
+    margin-top: var(--space-3xl);
+  }
+
+  .project-cover img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    display: block;
+  }
+
+  .project-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    padding-inline: var(--space-xl);
+    padding-block: var(--space-2xl);
+  }
+
+  .project-meta h1 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-heading);
+  }
+
+  .project-type {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+  }
+
+  .project-meta__right p {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-body);
+  }
+
+  .project-demo-link {
+    display: inline-block;
+    margin-top: var(--space-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .project-demo-link:hover {
+    text-decoration: underline;
+  }
+
+  .project-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    margin-inline: var(--space-xl);
+    margin-top: var(--space-lg);
+  }
+
+  .project-gallery img {
+    width: 100%;
+    display: block;
+  }
+
+  .project-nav {
+    display: flex;
+    justify-content: space-between;
+    padding-block: var(--space-2xl);
+    padding-inline: var(--space-xl);
+  }
+
+  .project-nav a {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .project-nav a:hover {
+    text-decoration: underline;
+  }
+
+  .project-nav__next {
+    margin-left: auto;
+  }
+
+  @media (max-width: 640px) {
+    .project-cover {
+      margin-inline: var(--space-md);
+    }
+
+    .project-meta {
+      grid-template-columns: 1fr;
+      padding-inline: var(--space-md);
+    }
+
+    .project-gallery {
+      margin-inline: var(--space-md);
+    }
+
+    .project-nav {
+      padding-inline: var(--space-md);
+    }
+  }
+</style>

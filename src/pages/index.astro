@@ -10,7 +10,7 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
   <ul class="project-grid">
     {sorted.map((project) => (
       <li class="project-cell">
-        <a href={`/projects/${project.id}`}>
+        <a href={`/projects/${project.slug}`}>
           <img
             src={project.data.cover}
             alt={project.data.title}
