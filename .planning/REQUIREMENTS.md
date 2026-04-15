@@ -37,14 +37,14 @@
 
 ### Content Management
 
-- [ ] **CONT-01**: Each project is defined by a Markdown file with front matter (title, description, images, live demo URL, order)
-- [ ] **CONT-02**: Adding a new project requires only creating a new Markdown file — no code changes
-- [ ] **CONT-03**: Project order on the home page is controlled by a `order` field in front matter
-- [ ] **CONT-04**: About page text is editable via a Markdown file
+- [x] **CONT-01**: Each project is defined by a Markdown file with front matter (title, description, images, live demo URL, order)
+- [x] **CONT-02**: Adding a new project requires only creating a new Markdown file — no code changes
+- [x] **CONT-03**: Project order on the home page is controlled by a `order` field in front matter
+- [x] **CONT-04**: About page text is editable via a Markdown file
 
 ### Design & Accessibility
 
-- [ ] **DSGN-01**: Visual design is white/minimal — generous whitespace, no decorative elements, typography-led
+- [x] **DSGN-01**: Visual design is white/minimal — generous whitespace, no decorative elements, typography-led
 - [ ] **DSGN-02**: Site is fully responsive on mobile, tablet, and desktop
 - [ ] **DSGN-03**: Images fill the container width on all screen sizes
 - [ ] **DSGN-04**: No animations beyond nav hide/show behavior
@@ -52,8 +52,8 @@
 ### Performance & Privacy
 
 - [ ] **PERF-01**: Pages load in under 2 seconds on a standard connection
-- [ ] **PERF-02**: Astro outputs `static` mode — pure HTML/CSS, zero client-side JS by default
-- [ ] **PERF-03**: No analytics scripts, no tracking pixels, no third-party monitoring
+- [x] **PERF-02**: Astro outputs `static` mode — pure HTML/CSS, zero client-side JS by default
+- [x] **PERF-03**: No analytics scripts, no tracking pixels, no third-party monitoring
 - [ ] **PERF-04**: Site is deployable to Netlify or Vercel via git push
 
 ## v2 Requirements
@@ -102,17 +102,17 @@
 | ABOUT-02 | Phase 2 | Pending |
 | ABOUT-03 | Phase 2 | Pending |
 | ABOUT-04 | Phase 2 | Pending |
-| CONT-01 | Phase 1 | Pending |
-| CONT-02 | Phase 1 | Pending |
-| CONT-03 | Phase 1 | Pending |
-| CONT-04 | Phase 1 | Pending |
-| DSGN-01 | Phase 1 | Pending |
+| CONT-01 | Phase 1 | Complete |
+| CONT-02 | Phase 1 | Complete |
+| CONT-03 | Phase 1 | Complete |
+| CONT-04 | Phase 1 | Complete |
+| DSGN-01 | Phase 1 | Complete |
 | DSGN-02 | Phase 3 | Pending |
 | DSGN-03 | Phase 3 | Pending |
 | DSGN-04 | Phase 1 | Pending |
 | PERF-01 | Phase 3 | Pending |
-| PERF-02 | Phase 1 | Pending |
-| PERF-03 | Phase 1 | Pending |
+| PERF-02 | Phase 1 | Complete |
+| PERF-03 | Phase 1 | Complete |
 | PERF-04 | Phase 3 | Pending |
 
 **Coverage:**

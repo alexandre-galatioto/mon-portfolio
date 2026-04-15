@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   5. The Astro build outputs static HTML/CSS only — no client-side JS bundle, no analytics scripts
 **Plans**: 2 plans
 Plans:
-- [ ] 01-01-PLAN.md — Astro scaffold, content collections, design tokens, global CSS
+- [x] 01-01-PLAN.md — Astro scaffold, content collections, design tokens, global CSS
 - [ ] 01-02-PLAN.md — BaseLayout, Nav component (scroll hide/show + mobile hamburger), index stub
 **UI hint**: yes
 
