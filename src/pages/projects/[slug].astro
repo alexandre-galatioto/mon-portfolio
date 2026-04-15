@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -47,7 +48,16 @@ const { data } = entry;
 
   <div class="project-gallery">
     {data.images.map((src) => (
-      <img src={src} alt="" loading="lazy" />
+      <Image
+        src={src}
+        alt=""
+        width={1600}
+        height={1200}
+        format="webp"
+        widths={[640, 960, 1280, 1600]}
+        sizes="(max-width: 640px) calc(100vw - 32px), calc(100vw - 64px)"
+        loading="lazy"
+      />
     ))}
   </div>
 
