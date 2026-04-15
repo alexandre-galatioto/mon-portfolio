@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 01-foundation-01-01-PLAN.md
-last_updated: "2026-04-15T12:25:03.218Z"
+status: verifying
+stopped_at: Completed 01-foundation-01-02-PLAN.md
+last_updated: "2026-04-15T12:31:34.322Z"
 last_activity: 2026-04-15
 progress:
   total_phases: 3
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 1
-  percent: 50
+  completed_plans: 2
+  percent: 100
 ---
 
 # Project State
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-04-15)
 
 Phase: 01 (foundation) — EXECUTING
 Plan: 2 of 2
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-04-15
 
 Progress: [░░░░░░░░░░] 0%
@@ -53,6 +53,7 @@ Progress: [░░░░░░░░░░] 0%
 
 *Updated after each plan completion*
 | Phase 01-foundation P01 | 171 | 2 tasks | 10 files |
+| Phase 01-foundation P02 | 10 | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -67,6 +68,9 @@ Recent decisions affecting current work:
 - No contact form, no analytics: Explicit client requirements
 - [Phase 01-foundation]: No dependencies beyond astro — vanilla CSS enforced; output: static for zero client-side JS bundle
 - [Phase 01-foundation]: Three @font-face blocks only (Regular 400, Medium 500, Italic 400i) — Bold 700 token deferred to Phase 2 per UI-SPEC
+- [Phase 01-foundation]: Inline script in Nav.astro — no external JS bundle, satisfies PERF-02 zero-bundle constraint
+- [Phase 01-foundation]: opacity+visibility transition on mobile overlay — allows CSS transition while keeping element hidden from assistive tech when closed
+- [Phase 01-foundation]: passive: true on scroll listener — prevents blocking main thread, mitigates T-01-07
 
 ### Pending Todos
 
@@ -86,6 +90,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-04-15T12:25:03.215Z
-Stopped at: Completed 01-foundation-01-01-PLAN.md
+Last session: 2026-04-15T12:31:34.319Z
+Stopped at: Completed 01-foundation-01-02-PLAN.md
 Resume file: None

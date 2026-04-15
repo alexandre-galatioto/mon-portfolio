@@ -31,7 +31,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans
 Plans:
 - [x] 01-01-PLAN.md — Astro scaffold, content collections, design tokens, global CSS
-- [ ] 01-02-PLAN.md — BaseLayout, Nav component (scroll hide/show + mobile hamburger), index stub
+- [x] 01-02-PLAN.md — BaseLayout, Nav component (scroll hide/show + mobile hamburger), index stub
 **UI hint**: yes
 
 ### Phase 2: Content Pages

@@ -7,10 +7,10 @@
 
 ### Navigation
 
-- [ ] **NAV-01**: Site displays a minimal top navigation bar with name/logo on the left and page links (Work, About) on the right
-- [ ] **NAV-02**: Navigation bar disappears on scroll down and reappears on scroll up
-- [ ] **NAV-03**: On mobile, navigation collapses into a hamburger menu
-- [ ] **NAV-04**: Navigation is accessible on all pages
+- [x] **NAV-01**: Site displays a minimal top navigation bar with name/logo on the left and page links (Work, About) on the right
+- [x] **NAV-02**: Navigation bar disappears on scroll down and reappears on scroll up
+- [x] **NAV-03**: On mobile, navigation collapses into a hamburger menu
+- [x] **NAV-04**: Navigation is accessible on all pages
 
 ### Home Page
 
@@ -47,7 +47,7 @@
 - [x] **DSGN-01**: Visual design is white/minimal — generous whitespace, no decorative elements, typography-led
 - [ ] **DSGN-02**: Site is fully responsive on mobile, tablet, and desktop
 - [ ] **DSGN-03**: Images fill the container width on all screen sizes
-- [ ] **DSGN-04**: No animations beyond nav hide/show behavior
+- [x] **DSGN-04**: No animations beyond nav hide/show behavior
 
 ### Performance & Privacy
 
@@ -84,10 +84,10 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| NAV-01 | Phase 1 | Pending |
-| NAV-02 | Phase 1 | Pending |
-| NAV-03 | Phase 1 | Pending |
-| NAV-04 | Phase 1 | Pending |
+| NAV-01 | Phase 1 | Complete |
+| NAV-02 | Phase 1 | Complete |
+| NAV-03 | Phase 1 | Complete |
+| NAV-04 | Phase 1 | Complete |
 | HOME-01 | Phase 2 | Pending |
 | HOME-02 | Phase 2 | Pending |
 | HOME-03 | Phase 2 | Pending |
@@ -109,7 +109,7 @@
 | DSGN-01 | Phase 1 | Complete |
 | DSGN-02 | Phase 3 | Pending |
 | DSGN-03 | Phase 3 | Pending |
-| DSGN-04 | Phase 1 | Pending |
+| DSGN-04 | Phase 1 | Complete |
 | PERF-01 | Phase 3 | Pending |
 | PERF-02 | Phase 1 | Complete |
 | PERF-03 | Phase 1 | Complete |
