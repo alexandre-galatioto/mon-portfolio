@@ -1,6 +1,6 @@
 ---
 phase: 02-content-pages
-reviewed: 2026-04-15T00:00:00Z
+reviewed: 2026-04-15T14:30:00Z
 depth: standard
 files_reviewed: 10
 files_reviewed_list:
@@ -15,29 +15,61 @@ files_reviewed_list:
   - src/styles/global.css
   - src/styles/tokens.css
 findings:
-  critical: 1
+  critical: 2
   warning: 2
   info: 3
-  total: 6
+  total: 7
 status: issues_found
 ---
 
 # Phase 02: Code Review Report
 
-**Reviewed:** 2026-04-15T00:00:00Z
+**Reviewed:** 2026-04-15T14:30:00Z
 **Depth:** standard
 **Files Reviewed:** 10
 **Status:** issues_found
 
 ## Summary
 
-Reviewed all 10 source files for the content-pages phase: two Astro page files, one dynamic route, one layout, the content collection config, two content markdown files, and two CSS files. The foundation (design tokens, global resets, schema definitions) is clean and consistent. The main concerns are a runtime crash risk on the About page when the content entry is absent, and a likely Astro version incompatibility with the deprecated `.slug` property used across two page files that will silently produce broken routes.
+Reviewed all 10 source files for the content-pages phase: three Astro page/route files, one layout, the content collection config, two content markdown files, and two CSS files. The design tokens, global resets, and schema definitions are clean and consistent. Two critical issues were found: the `<Image>` component in the project detail page is used with string paths that will cause a build failure in Astro v4, and the About page has no null guard on its content entry lookup. Two warnings address deprecated `.slug` usage and in-place array mutation.
 
 ---
 
 ## Critical Issues
 
-### CR-01: `getEntry` result used without null guard on About page
+### CR-01: `<Image>` component will fail with string paths from public directory
+
+**File:** `src/pages/projects/[slug].astro:50-60`
+**Issue:** The `<Image>` component imported from `astro:assets` (line 3) is used with string `src` values from content frontmatter (e.g., `"/images/projects/acme/01.jpg"`). In Astro v4 (`"astro": "^4.0.0"` in package.json), the `<Image>` component requires either an ESM-imported image object or a full remote URL. Passing a string path to a public directory file will throw a build error: "Local images must be imported." This affects every project detail page and will prevent the site from building.
+**Fix:** Replace `<Image>` with a standard `<img>` tag for public directory images, or restructure images to use ESM imports via content collection image schema:
+
+Option A -- Use `<img>` tag (simplest, matches the pattern used elsewhere in the codebase):
+```astro
+// Remove the Image import on line 3
+// import { Image } from 'astro:assets';  // DELETE
+
+// Replace the gallery Image component (lines 50-60) with:
+{data.images.map((src) => (
+  <img
+    src={src}
+    alt=""
+    width="1600"
+    height="1200"
+    loading="lazy"
+  />
+))}
+```
+
+Option B -- Use content collection `image()` schema helper (requires moving images into `src/` and updating frontmatter paths):
+```ts
+// In config.ts, change:
+images: z.array(z.string()),
+// to:
+images: z.array(image()),
+```
+This is a larger refactor but enables Astro's built-in image optimization.
+
+### CR-02: `getEntry` result used without null guard on About page
 
 **File:** `src/pages/about.astro:5-7`
 **Issue:** `getEntry('about', 'index')` returns `undefined` when no matching entry exists (e.g., file renamed, collection misconfigured, or during a build without the file present). Calling `render(entry)` and destructuring `entry.data` on an undefined value throws a runtime error that crashes the build with no meaningful message.
@@ -57,70 +89,64 @@ const { data } = entry;
 
 ### WR-01: Deprecated `.slug` property used for route generation
 
-**File:** `src/pages/index.astro:13` and `src/pages/projects/[slug].astro:9, 56, 61`
-**Issue:** `entry.slug` is deprecated in Astro v3+ content collections. The property that carries the file-based identifier is now `entry.id` (which for a file at `src/content/projects/sample-project.md` yields `"sample-project"`). In Astro v5, `.slug` may be `undefined`, causing all project links to render as `/projects/undefined` and all `getStaticPaths` routes to be generated under that path. This is a silent failure — no build error, just broken navigation.
+**File:** `src/pages/index.astro:13` and `src/pages/projects/[slug].astro:9, 66, 71`
+**Issue:** In Astro v4 content collections, `entry.slug` is deprecated in favor of `entry.id`. While `.slug` still works in Astro v4, it is removed in Astro v5. Since `package.json` uses `"^4.0.0"`, a future minor/patch update could surface this as a warning, and a major version bump to v5 would break all project links silently (rendering as `/projects/undefined`).
 **Fix:**
 ```astro
-// In index.astro — replace .slug with .id (strip collection prefix if present)
+// In index.astro line 13 -- replace .slug with .id
 <a href={`/projects/${project.id}`}>
 
-// In [slug].astro — getStaticPaths
-return sorted.map((entry, index) => ({
-  params: { slug: entry.id },
-  props: { entry, prev: sorted[index - 1] ?? null, next: sorted[index + 1] ?? null },
-}));
+// In [slug].astro getStaticPaths -- line 9
+params: { slug: entry.id },
 
-// In [slug].astro — nav links
+// In [slug].astro nav links -- lines 66, 71
 <a href={`/projects/${prev.id}`} class="project-nav__prev">
 <a href={`/projects/${next.id}`} class="project-nav__next">
 ```
-Note: If the Astro version in use is v2 (where `.slug` is still the canonical property), this warning does not apply — but the Astro version should be verified in `package.json`.
+Note: Verify the Astro version actually installed in `node_modules` -- if it is v3.x or earlier, `.slug` is still the canonical property.
 
 ### WR-02: In-place mutation of `getCollection` result array
 
-**File:** `src/pages/index.astro:6` and `src/pages/projects/[slug].astro:7`
-**Issue:** `Array.prototype.sort()` mutates the source array. Both files call `projects.sort(...)` directly on the array returned by `getCollection`. While Astro currently returns a new array per `getCollection` call, mutating a shared data structure is a fragile pattern that can cause non-deterministic ordering if the array is ever cached or reused in a future Astro version.
+**File:** `src/pages/index.astro:6` and `src/pages/projects/[slug].astro:8`
+**Issue:** `Array.prototype.sort()` mutates the source array in place. Both files call `projects.sort(...)` directly on the array returned by `getCollection`. While Astro currently returns a new array per call, mutating returned data is a fragile pattern that can cause non-deterministic ordering if the result is ever cached.
 **Fix:**
 ```astro
-// Use spread or .toSorted() (ES2023) to avoid mutation
 const sorted = [...projects].sort((a, b) => a.data.order - b.data.order);
-// or
-const sorted = projects.toSorted((a, b) => a.data.order - b.data.order);
 ```
 
 ---
 
 ## Info
 
-### IN-01: Portrait image missing explicit `loading` attribute
-
-**File:** `src/pages/about.astro:13`
-**Issue:** The portrait `<img>` element has no `loading` attribute. The project grid images consistently use `loading="lazy"` and the project cover uses `loading="eager"`. The about portrait is above the fold and should use `loading="eager"` (or omit the attribute, which defaults to eager) for consistent, intentional behavior and alignment with the pattern established elsewhere.
-**Fix:**
-```astro
-<img src={data.portrait} alt="Alexandre Galatioto" loading="eager" />
-```
-
-### IN-02: Gallery images use empty `alt` without `role="presentation"`
-
-**File:** `src/pages/projects/[slug].astro:50`
-**Issue:** `alt=""` is correct for decorative images, but the WCAG convention for decorative images that are not purely presentational artifacts is to also add `role="presentation"` to make the intent explicit to assistive technology authors reading the source.
-**Fix:**
-```astro
-<img src={src} alt="" role="presentation" loading="lazy" />
-```
-
-### IN-03: Hardcoded copyright year in layout footer
+### IN-01: Hardcoded copyright year in layout footer
 
 **File:** `src/layouts/BaseLayout.astro:27`
-**Issue:** The year `©2026` is hardcoded as a string literal. It will become stale without a code change.
+**Issue:** The year `2026` is hardcoded as a string literal. It will become stale without a code change.
 **Fix:**
 ```astro
 <p>Alexandre Galatioto &copy;{new Date().getFullYear()}</p>
 ```
 
+### IN-02: Portrait image missing explicit `loading` attribute
+
+**File:** `src/pages/about.astro:13`
+**Issue:** The portrait `<img>` has no `loading` attribute. The project grid uses `loading="lazy"` and the project cover uses `loading="eager"`. For consistency and explicit intent, the above-the-fold portrait should specify `loading="eager"`.
+**Fix:**
+```astro
+<img src={data.portrait} alt="Alexandre Galatioto" loading="eager" />
+```
+
+### IN-03: Gallery images use empty `alt` without `role="presentation"`
+
+**File:** `src/pages/projects/[slug].astro:50`
+**Issue:** Gallery images use `alt=""` which is correct for decorative images, but adding `role="presentation"` makes the intent more explicit for accessibility audits.
+**Fix:**
+```astro
+<img src={src} alt="" role="presentation" loading="lazy" />
+```
+
 ---
 
-_Reviewed: 2026-04-15T00:00:00Z_
+_Reviewed: 2026-04-15T14:30:00Z_
 _Reviewer: Claude (gsd-code-reviewer)_
 _Depth: standard_
