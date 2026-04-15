@@ -33,7 +33,7 @@
 - [ ] **ABOUT-01**: About page displays a bio/text section
 - [ ] **ABOUT-02**: About page displays a LinkedIn profile link
 - [ ] **ABOUT-03**: About page displays an Instagram profile link
-- [ ] **ABOUT-04**: No contact form, no call to action
+- [x] **ABOUT-04**: No contact form, no call to action
 
 ### Content Management
 
@@ -101,7 +101,7 @@
 | ABOUT-01 | Phase 2 | Pending |
 | ABOUT-02 | Phase 2 | Pending |
 | ABOUT-03 | Phase 2 | Pending |
-| ABOUT-04 | Phase 2 | Pending |
+| ABOUT-04 | Phase 2 | Complete |
 | CONT-01 | Phase 1 | Complete |
 | CONT-02 | Phase 1 | Complete |
 | CONT-03 | Phase 1 | Complete |

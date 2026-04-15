@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: verifying
-stopped_at: Phase 2 context gathered
-last_updated: "2026-04-15T12:56:35.795Z"
+status: executing
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-04-15T13:28:14.160Z"
 last_activity: 2026-04-15
 progress:
   total_phases: 3
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
-  percent: 100
+  total_plans: 5
+  completed_plans: 3
+  percent: 60
 ---
 
 # Project State
@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-15)
 
 **Core value:** Make recruiters immediately understand they are looking at a seasoned, serious professional — through the quality of the work, not through marketing copy.
-**Current focus:** Phase 01 — foundation
+**Current focus:** Phase 02 — content-pages
 
 ## Current Position
 
-Phase: 2
-Plan: Not started
-Status: Phase complete — ready for verification
+Phase: 02 (content-pages) — EXECUTING
+Plan: 2 of 3
+Status: Ready to execute
 Last activity: 2026-04-15
 
 Progress: [░░░░░░░░░░] 0%
@@ -54,6 +54,7 @@ Progress: [░░░░░░░░░░] 0%
 *Updated after each plan completion*
 | Phase 01-foundation P01 | 171 | 2 tasks | 10 files |
 | Phase 01-foundation P02 | 10 | 3 tasks | 3 files |
+| Phase 02-content-pages P01 | 4 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -71,6 +72,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: Inline script in Nav.astro — no external JS bundle, satisfies PERF-02 zero-bundle constraint
 - [Phase 01-foundation]: opacity+visibility transition on mobile overlay — allows CSS transition while keeping element hidden from assistive tech when closed
 - [Phase 01-foundation]: passive: true on scroll listener — prevents blocking main thread, mitigates T-01-07
+- [Phase 02-content-pages]: type replaces featured in projects schema — typed category string more flexible than boolean flag
+- [Phase 02-content-pages]: Social URLs moved to about front matter for programmatic access in Wave 2 pages
+- [Phase 02-content-pages]: Footer placed in BaseLayout for universal coverage across all pages
 
 ### Pending Todos
 
@@ -90,6 +94,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-04-15T12:56:35.792Z
-Stopped at: Phase 2 context gathered
-Resume file: .planning/phases/02-content-pages/02-CONTEXT.md
+Last session: 2026-04-15T13:28:14.156Z
+Stopped at: Completed 02-01-PLAN.md
+Resume file: None
