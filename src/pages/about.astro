@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('about', 'index');
+const { Content } = await render(entry);
+const { data } = entry;
+---
+
+<BaseLayout title="About — Alexandre Galatioto">
+  <div class="about-layout">
+    <div class="about-portrait">
+      <img src={data.portrait} alt="Alexandre Galatioto" />
+    </div>
+    <div class="about-content">
+      <div class="about-bio">
+        <Content />
+      </div>
+      <ul class="about-links">
+        {data.linkedinUrl && (
+          <li>
+            <a href={data.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </li>
+        )}
+        {data.instagramUrl && (
+          <li>
+            <a href={data.instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a>
+          </li>
+        )}
+      </ul>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    padding-inline: var(--space-xl);
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .about-portrait img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .about-bio {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-body);
+  }
+
+  .about-links {
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .about-links a {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .about-links a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .about-layout {
+      grid-template-columns: 1fr;
+      padding-inline: var(--space-md);
+    }
+  }
+</style>
