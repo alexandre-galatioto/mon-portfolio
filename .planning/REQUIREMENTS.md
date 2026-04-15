@@ -22,11 +22,11 @@
 
 ### Project Pages
 
-- [ ] **PROJ-01**: Each project page displays a title and descriptive text
-- [ ] **PROJ-02**: Each project page displays its images as a full-width vertical stack (one image per row)
-- [ ] **PROJ-03**: Images are lazy-loaded and optimized (WebP, responsive srcset via Astro Image)
-- [ ] **PROJ-04**: Projects that have a live demo display a visible link to the external URL
-- [ ] **PROJ-05**: Projects without a live demo display no link (optional field in Markdown)
+- [x] **PROJ-01**: Each project page displays a title and descriptive text
+- [x] **PROJ-02**: Each project page displays its images as a full-width vertical stack (one image per row)
+- [x] **PROJ-03**: Images are lazy-loaded and optimized (WebP, responsive srcset via Astro Image)
+- [x] **PROJ-04**: Projects that have a live demo display a visible link to the external URL
+- [x] **PROJ-05**: Projects without a live demo display no link (optional field in Markdown)
 
 ### About Page
 
@@ -93,11 +93,11 @@
 | HOME-03 | Phase 2 | Complete |
 | HOME-04 | Phase 2 | Complete |
 | HOME-05 | Phase 2 | Complete |
-| PROJ-01 | Phase 2 | Pending |
-| PROJ-02 | Phase 2 | Pending |
-| PROJ-03 | Phase 2 | Pending |
-| PROJ-04 | Phase 2 | Pending |
-| PROJ-05 | Phase 2 | Pending |
+| PROJ-01 | Phase 2 | Complete |
+| PROJ-02 | Phase 2 | Complete |
+| PROJ-03 | Phase 2 | Complete |
+| PROJ-04 | Phase 2 | Complete |
+| PROJ-05 | Phase 2 | Complete |
 | ABOUT-01 | Phase 2 | Complete |
 | ABOUT-02 | Phase 2 | Complete |
 | ABOUT-03 | Phase 2 | Complete |
