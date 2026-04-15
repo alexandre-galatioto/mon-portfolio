@@ -12,7 +12,11 @@ Make recruiters immediately understand they are looking at a seasoned, serious p
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] Disappear-on-scroll navigation (reappears on scroll up), minimal top bar — Validated in Phase 1: Foundation
+- [x] Projects managed via Markdown files (content editable without touching code) — Validated in Phase 1: Foundation
+- [x] Astro SSG output (`output: 'static'`) — pure HTML/CSS, no runtime — Validated in Phase 1: Foundation
+- [x] No analytics, no tracking — Validated in Phase 1: Foundation
+- [x] White / minimal visual design — images do the talking — Validated in Phase 1: Foundation (design tokens + global CSS)
 
 ### Active
 
@@ -61,11 +65,11 @@ Make recruiters immediately understand they are looking at a seasoned, serious p
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Astro SSG | Zero JS by default, Markdown content collections, built-in image optimization — best fit for image-heavy static portfolio | — Pending |
+| Astro SSG | Zero JS by default, Markdown content collections, built-in image optimization — best fit for image-heavy static portfolio | ✓ Phase 1 |
 | Full-width project list (not grid) | Editorial, intentional feel — slows viewer down, suits art director audience | — Pending |
-| Disappear-on-scroll nav | More editorial than sticky nav, consistent with minimal aesthetic | — Pending |
+| Disappear-on-scroll nav | More editorial than sticky nav, consistent with minimal aesthetic | ✓ Phase 1 |
 | No contact form | Recruiters email directly; form needs backend/third-party; no CTAs policy | — Pending |
-| No analytics | Explicit client requirement | — Pending |
+| No analytics | Explicit client requirement | ✓ Phase 1 |
 
 ## Evolution
 
@@ -85,4 +89,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-15 after initialization*
+*Last updated: 2026-04-15 after Phase 1 (Foundation) completion*
