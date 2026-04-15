@@ -14,11 +14,11 @@
 
 ### Home Page
 
-- [ ] **HOME-01**: Home page displays a full-width list of projects — one project per row, large image + title
-- [ ] **HOME-02**: Each project row is clickable and navigates to the individual project page
-- [ ] **HOME-03**: Project order is manually controlled via Markdown front matter (curated order)
-- [ ] **HOME-04**: No category filters — all projects displayed in a single scrollable list
-- [ ] **HOME-05**: Project title is always visible below the image (no hover-only reveal)
+- [x] **HOME-01**: Home page displays a full-width list of projects — one project per row, large image + title
+- [x] **HOME-02**: Each project row is clickable and navigates to the individual project page
+- [x] **HOME-03**: Project order is manually controlled via Markdown front matter (curated order)
+- [x] **HOME-04**: No category filters — all projects displayed in a single scrollable list
+- [x] **HOME-05**: Project title is always visible below the image (no hover-only reveal)
 
 ### Project Pages
 
@@ -30,9 +30,9 @@
 
 ### About Page
 
-- [ ] **ABOUT-01**: About page displays a bio/text section
-- [ ] **ABOUT-02**: About page displays a LinkedIn profile link
-- [ ] **ABOUT-03**: About page displays an Instagram profile link
+- [x] **ABOUT-01**: About page displays a bio/text section
+- [x] **ABOUT-02**: About page displays a LinkedIn profile link
+- [x] **ABOUT-03**: About page displays an Instagram profile link
 - [x] **ABOUT-04**: No contact form, no call to action
 
 ### Content Management
@@ -88,19 +88,19 @@
 | NAV-02 | Phase 1 | Complete |
 | NAV-03 | Phase 1 | Complete |
 | NAV-04 | Phase 1 | Complete |
-| HOME-01 | Phase 2 | Pending |
-| HOME-02 | Phase 2 | Pending |
-| HOME-03 | Phase 2 | Pending |
-| HOME-04 | Phase 2 | Pending |
-| HOME-05 | Phase 2 | Pending |
+| HOME-01 | Phase 2 | Complete |
+| HOME-02 | Phase 2 | Complete |
+| HOME-03 | Phase 2 | Complete |
+| HOME-04 | Phase 2 | Complete |
+| HOME-05 | Phase 2 | Complete |
 | PROJ-01 | Phase 2 | Pending |
 | PROJ-02 | Phase 2 | Pending |
 | PROJ-03 | Phase 2 | Pending |
 | PROJ-04 | Phase 2 | Pending |
 | PROJ-05 | Phase 2 | Pending |
-| ABOUT-01 | Phase 2 | Pending |
-| ABOUT-02 | Phase 2 | Pending |
-| ABOUT-03 | Phase 2 | Pending |
+| ABOUT-01 | Phase 2 | Complete |
+| ABOUT-02 | Phase 2 | Complete |
+| ABOUT-03 | Phase 2 | Complete |
 | ABOUT-04 | Phase 2 | Complete |
 | CONT-01 | Phase 1 | Complete |
 | CONT-02 | Phase 1 | Complete |

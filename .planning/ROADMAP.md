@@ -47,7 +47,7 @@ Plans:
 **Plans**: 3 plans
 Plans:
 - [x] 02-01-PLAN.md — Schema updates, sample content, Bold font token, global footer
-- [ ] 02-02-PLAN.md — Home page image grid and about page
+- [x] 02-02-PLAN.md — Home page image grid and about page
 - [ ] 02-03-PLAN.md — Project detail page with dynamic routing, gallery, prev/next nav
 **UI hint**: yes
 
