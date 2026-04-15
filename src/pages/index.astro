@@ -1,7 +1,51 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+const sorted = projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout title="Work — Alexandre Galatioto">
-  <!-- Home page content built in Phase 2 -->
+  <ul class="project-grid">
+    {sorted.map((project) => (
+      <li class="project-cell">
+        <a href={`/projects/${project.id}`}>
+          <img
+            src={project.data.cover}
+            alt={project.data.title}
+            loading="lazy"
+          />
+        </a>
+      </li>
+    ))}
+  </ul>
 </BaseLayout>
+
+<style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+    padding-inline: var(--space-xl);
+    padding-top: var(--space-3xl);
+  }
+
+  .project-cell a {
+    display: block;
+  }
+
+  .project-cell img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+      padding-inline: var(--space-md);
+    }
+  }
+</style>
