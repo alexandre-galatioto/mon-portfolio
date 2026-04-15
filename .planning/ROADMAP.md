@@ -44,7 +44,11 @@ Plans:
   3. Images on project pages are served as WebP with responsive srcset and load lazily
   4. Projects with a live demo URL display a visible link; projects without one display nothing
   5. The about page displays bio text plus LinkedIn and Instagram links, with no contact form or call to action
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 02-01-PLAN.md — Schema updates, sample content, Bold font token, global footer
+- [ ] 02-02-PLAN.md — Home page image grid and about page
+- [ ] 02-03-PLAN.md — Project detail page with dynamic routing, gallery, prev/next nav
 **UI hint**: yes
 
 ### Phase 3: Responsive, Performance & Deploy
@@ -65,6 +69,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/2 | Not started | - |
-| 2. Content Pages | 0/TBD | Not started | - |
+| 1. Foundation | 2/2 | Complete | - |
+| 2. Content Pages | 0/3 | Not started | - |
 | 3. Responsive, Performance & Deploy | 0/TBD | Not started | - |
