@@ -1,12 +1,12 @@
 ---
-title: "Nantes"
+title: "ysl-ecom"
 description: "A comprehensive brand identity project covering logo design, typography system, and brand guidelines for a tech startup."
-cover: "../../assets/images/projects/nantes/cover.jpg"
+cover: "../../assets/images/projects/ysl-ecom/cover.jpg"
 images:
-  - "../../assets/images/projects/nantes/01.jpg"
-  - "../../assets/images/projects/nantes/02.jpg"
-  - "../../assets/images/projects/nantes/03.jpg"
-order: 2
+  - "../../assets/images/projects/ysl-ecom/01.jpg"
+  - "../../assets/images/projects/ysl-ecom/02.jpg"
+  - "../../assets/images/projects/ysl-ecom/03.jpg"
+order: 8
 liveUrl: "https://example.com/acme"
 type: "Brand Identity"
 ---

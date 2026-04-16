@@ -1,12 +1,12 @@
 ---
-title: "Brand Identity for Acme Corp"
+title: "Jean Smart"
 description: "A comprehensive brand identity project covering logo design, typography system, and brand guidelines for a tech startup."
-cover: "../../assets/images/projects/acme/cover.jpg"
+cover: "../../assets/images/projects/jean-smart/cover.jpg"
 images:
-  - "../../assets/images/projects/acme/01.jpg"
-  - "../../assets/images/projects/acme/02.jpg"
-  - "../../assets/images/projects/acme/03.jpg"
-order: 1
+  - "../../assets/images/projects/jean-smart/01.jpg"
+  - "../../assets/images/projects/jean-smart/02.jpg"
+  - "../../assets/images/projects/jean-smart/03.jpg"
+order: 3
 liveUrl: "https://example.com/acme"
 type: "Brand Identity"
 ---
