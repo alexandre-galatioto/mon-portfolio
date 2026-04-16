@@ -4,6 +4,9 @@ import { Image } from 'astro:assets';
 import { getEntry, render } from 'astro:content';
 
 const entry = await getEntry('about', 'index');
+if (!entry) {
+  throw new Error('Missing required content entry: about/index');
+}
 const { Content } = await render(entry);
 const { data } = entry;
 ---
