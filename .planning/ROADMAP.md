@@ -62,7 +62,7 @@ Plans:
   3. A git push to the main branch triggers an automatic deployment and the live URL serves the updated site
 **Plans**: 3 plans
 Plans:
-- [ ] 03-01-PLAN.md — Image schema migration (image() helper), front matter path updates, font preload
+- [x] 03-01-PLAN.md — Image schema migration (image() helper), front matter path updates, font preload
 - [ ] 03-02-PLAN.md — Page component updates (Image component, max-width caps, cover aspect ratio fix)
 - [ ] 03-03-PLAN.md — Netlify deployment configuration and live deploy verification
 **UI hint**: yes
@@ -76,4 +76,4 @@ Phases execute in numeric order: 1 → 2 → 3
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete | - |
 | 2. Content Pages | 4/4 | Complete   | 2026-04-15 |
-| 3. Responsive, Performance & Deploy | 0/3 | Not started | - |
+| 3. Responsive, Performance & Deploy | 1/3 | In Progress|  |

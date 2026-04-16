@@ -46,12 +46,12 @@
 
 - [x] **DSGN-01**: Visual design is white/minimal — generous whitespace, no decorative elements, typography-led
 - [ ] **DSGN-02**: Site is fully responsive on mobile, tablet, and desktop
-- [ ] **DSGN-03**: Images fill the container width on all screen sizes
+- [x] **DSGN-03**: Images fill the container width on all screen sizes
 - [x] **DSGN-04**: No animations beyond nav hide/show behavior
 
 ### Performance & Privacy
 
-- [ ] **PERF-01**: Pages load in under 2 seconds on a standard connection
+- [x] **PERF-01**: Pages load in under 2 seconds on a standard connection
 - [x] **PERF-02**: Astro outputs `static` mode — pure HTML/CSS, zero client-side JS by default
 - [x] **PERF-03**: No analytics scripts, no tracking pixels, no third-party monitoring
 - [ ] **PERF-04**: Site is deployable to Netlify or Vercel via git push
@@ -108,9 +108,9 @@
 | CONT-04 | Phase 1 | Complete |
 | DSGN-01 | Phase 1 | Complete |
 | DSGN-02 | Phase 3 | Pending |
-| DSGN-03 | Phase 3 | Pending |
+| DSGN-03 | Phase 3 | Complete |
 | DSGN-04 | Phase 1 | Complete |
-| PERF-01 | Phase 3 | Pending |
+| PERF-01 | Phase 3 | Complete |
 | PERF-02 | Phase 1 | Complete |
 | PERF-03 | Phase 1 | Complete |
 | PERF-04 | Phase 3 | Pending |
