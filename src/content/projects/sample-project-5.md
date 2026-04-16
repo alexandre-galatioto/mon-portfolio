@@ -6,6 +6,7 @@ images:
   - "../../assets/images/projects/suez/01.jpg"
   - "../../assets/images/projects/suez/02.jpg"
   - "../../assets/images/projects/suez/03.jpg"
+  - "../../assets/images/projects/suez/04.jpg"
 order: 5
 liveUrl: "https://example.com/acme"
 type: "Brand Identity"

@@ -6,6 +6,8 @@ images:
   - "../../assets/images/projects/jean-smart/01.jpg"
   - "../../assets/images/projects/jean-smart/02.jpg"
   - "../../assets/images/projects/jean-smart/03.jpg"
+  - "../../assets/images/projects/jean-smart/04.jpg"
+  - "../../assets/images/projects/jean-smart/05.jpg"
 order: 3
 liveUrl: "https://example.com/acme"
 type: "Brand Identity"

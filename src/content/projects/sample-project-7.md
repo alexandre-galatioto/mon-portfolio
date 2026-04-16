@@ -6,6 +6,8 @@ images:
   - "../../assets/images/projects/ysl/01.jpg"
   - "../../assets/images/projects/ysl/02.jpg"
   - "../../assets/images/projects/ysl/03.jpg"
+  - "../../assets/images/projects/ysl/04.jpg"
+  - "../../assets/images/projects/ysl/05.jpg"
 order: 7
 liveUrl: "https://example.com/acme"
 type: "Brand Identity"

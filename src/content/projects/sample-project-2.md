@@ -6,6 +6,8 @@ images:
   - "../../assets/images/projects/nantes/01.jpg"
   - "../../assets/images/projects/nantes/02.jpg"
   - "../../assets/images/projects/nantes/03.jpg"
+  - "../../assets/images/projects/nantes/04.jpg"
+  - "../../assets/images/projects/nantes/05.jpg"
 order: 2
 liveUrl: "https://example.com/acme"
 type: "Brand Identity"

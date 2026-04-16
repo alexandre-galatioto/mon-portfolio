@@ -6,6 +6,7 @@ images:
   - "../../assets/images/projects/wonderbox/01.jpg"
   - "../../assets/images/projects/wonderbox/02.jpg"
   - "../../assets/images/projects/wonderbox/03.jpg"
+  - "../../assets/images/projects/wonderbox/04.jpg"
 order: 6
 liveUrl: "https://example.com/acme"
 type: "Brand Identity"

@@ -5,7 +5,6 @@ cover: "../../assets/images/projects/anticor/cover.jpg"
 images:
   - "../../assets/images/projects/anticor/01.jpg"
   - "../../assets/images/projects/anticor/02.jpg"
-  - "../../assets/images/projects/anticor/03.jpg"
 order: 1
 liveUrl: "https://example.com/acme"
 type: "Brand Identity"
