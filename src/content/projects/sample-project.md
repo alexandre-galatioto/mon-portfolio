@@ -1,11 +1,11 @@
 ---
 title: "Brand Identity for Acme Corp"
 description: "A comprehensive brand identity project covering logo design, typography system, and brand guidelines for a tech startup."
-cover: "/images/projects/acme/cover.jpg"
+cover: "../../assets/images/projects/acme/cover.jpg"
 images:
-  - "/images/projects/acme/01.jpg"
-  - "/images/projects/acme/02.jpg"
-  - "/images/projects/acme/03.jpg"
+  - "../../assets/images/projects/acme/01.jpg"
+  - "../../assets/images/projects/acme/02.jpg"
+  - "../../assets/images/projects/acme/03.jpg"
 order: 1
 liveUrl: "https://example.com/acme"
 type: "Brand Identity"

@@ -1,5 +1,5 @@
 ---
-portrait: "/images/about/portrait.jpg"
+portrait: "../../assets/images/about/portrait.jpg"
 linkedinUrl: "https://linkedin.com/in/alexandregalatioto"
 instagramUrl: "https://instagram.com/alexandregalatioto"
 ---

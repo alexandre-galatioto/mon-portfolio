@@ -1,12 +1,13 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 
 const projects = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title:       z.string(),
     description: z.string(),
-    cover:       z.string(),
-    images:      z.array(z.string()),
+    cover:       image(),
+    images:      z.array(image()),
     order:       z.number(),
     liveUrl:     z.string().url().optional(),
     type:        z.string(),
@@ -15,8 +16,8 @@ const projects = defineCollection({
 
 const about = defineCollection({
   type: 'content',
-  schema: z.object({
-    portrait:     z.string(),
+  schema: ({ image }) => z.object({
+    portrait:     image(),
     linkedinUrl:  z.string().url().optional(),
     instagramUrl: z.string().url().optional(),
   }),

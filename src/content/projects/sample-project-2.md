@@ -1,10 +1,10 @@
 ---
 title: "Editorial Design for Flux Magazine"
 description: "Art direction and layout design for a quarterly print magazine exploring contemporary culture."
-cover: "/images/projects/flux/cover.jpg"
+cover: "../../assets/images/projects/flux/cover.jpg"
 images:
-  - "/images/projects/flux/01.jpg"
-  - "/images/projects/flux/02.jpg"
+  - "../../assets/images/projects/flux/01.jpg"
+  - "../../assets/images/projects/flux/02.jpg"
 order: 2
 type: "Editorial Design"
 ---
