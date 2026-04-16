@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 const projects = await getCollection('projects');
@@ -8,13 +9,16 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
 
 <BaseLayout title="Work — Alexandre Galatioto">
   <ul class="project-grid">
-    {sorted.map((project) => (
+    {sorted.map((project, i) => (
       <li class="project-cell">
         <a href={`/projects/${project.slug}`}>
-          <img
+          <Image
             src={project.data.cover}
             alt={project.data.title}
-            loading="lazy"
+            widths={[640, 960, 1280, 1600]}
+            sizes="(max-width: 640px) 100vw, 50vw"
+            format="webp"
+            loading={i === 0 ? 'eager' : 'lazy'}
           />
         </a>
       </li>
@@ -29,6 +33,8 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
     gap: var(--space-sm);
     padding-inline: var(--space-xl);
     padding-top: var(--space-3xl);
+    max-width: 1280px;
+    margin-inline: auto;
   }
 
   .project-cell a {
