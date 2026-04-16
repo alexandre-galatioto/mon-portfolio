@@ -20,9 +20,13 @@ Make recruiters immediately understand they are looking at a seasoned, serious p
 
 ### Active
 
-- [ ] Fully responsive across all devices (mobile, tablet, desktop)
-- [ ] Page load under 2 seconds
 - [ ] No calls to action
+
+### Validated in Phase 3: Responsive, Performance & Deploy
+
+- [x] Fully responsive across all devices (mobile, tablet, desktop) — Validated in Phase 3: max-width caps, mobile breakpoints, column collapse
+- [x] Page load under 2 seconds — Validated in Phase 3: image optimization pipeline (WebP/srcset), font preload
+- [x] Deployable to Netlify via git push — Validated in Phase 3: netlify.toml, live at alexandregalatioto.netlify.app
 
 ### Validated in Phase 2: Content Pages
 
@@ -87,4 +91,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-15 after Phase 2 (Content Pages) completion*
+*Last updated: 2026-04-16 after Phase 3 (Responsive, Performance & Deploy) completion*
