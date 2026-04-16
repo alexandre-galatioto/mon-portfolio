@@ -223,4 +223,30 @@
   overlay?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', closeMenu);
   });
+
+  // Escape key closes the menu
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay?.classList.contains('overlay--open')) {
+      closeMenu();
+      hamburger?.focus();
+    }
+  });
+
+  // Focus trap: intercept Tab on the last focusable element
+  const getFocusable = () =>
+    Array.from(overlay?.querySelectorAll('a, button') ?? []) as HTMLElement[];
+
+  overlay?.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const items = getFocusable();
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last?.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first?.focus();
+    }
+  });
 </script>
