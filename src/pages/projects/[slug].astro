@@ -74,12 +74,12 @@ const { Content } = await render(entry);
   <nav class="project-nav" aria-label="Project navigation">
     {prev && (
       <a href={`/projects/${prev.slug}`} class="project-nav__prev">
-        {prev.data.title}
+        <span class="sr-only">Previous project: </span>{prev.data.title}
       </a>
     )}
     {next && (
       <a href={`/projects/${next.slug}`} class="project-nav__next">
-        {next.data.title}
+        <span class="sr-only">Next project: </span>{next.data.title}
       </a>
     )}
   </nav>
