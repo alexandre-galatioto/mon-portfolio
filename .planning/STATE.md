@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-04-16T06:49:59.718Z"
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-04-16T16:17:16.662Z"
 last_activity: 2026-04-16
 progress:
   total_phases: 3
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 9
-  completed_plans: 7
-  percent: 78
+  completed_plans: 9
+  percent: 100
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-15)
 ## Current Position
 
 Phase: 03 (responsive-performance-deploy) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 Status: Ready to execute
 Last activity: 2026-04-16
 
@@ -60,6 +60,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-content-pages P03 | 3 | 1 tasks | 2 files |
 | Phase 02-content-pages P04 | 58 | 2 tasks | 2 files |
 | Phase 03-responsive-performance-deploy P01 | 240 | 2 tasks | 8 files |
+| Phase 03-responsive-performance-deploy P02 | 149 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -87,6 +88,9 @@ Recent decisions affecting current work:
 - [Phase 02-content-pages]: Image component scaffolding with public/ path strings — establishes correct component pattern even though WebP/srcset optimization only activates when real images migrate to src/assets/
 - [Phase 03-responsive-performance-deploy]: image() callback form requires z from astro/zod not astro:content — Astro 4 API constraint
 - [Phase 03-responsive-performance-deploy]: Regular (400) font weight only preloaded — Medium/Bold/Italic load on demand per D-06; crossorigin mandatory to prevent double-fetch
+- [Phase 03-responsive-performance-deploy]: Gallery map param renamed src->img to avoid shadowing Image component src prop
+- [Phase 03-responsive-performance-deploy]: Container spacing pattern: max-width + margin-inline: auto + padding-inline — enables simultaneous centering and inner gutter
+- [Phase 03-responsive-performance-deploy]: Home page 3:2 cover crop preserved per D-08; only project gallery pages remove aspect ratio constraints
 
 ### Pending Todos
 
@@ -106,6 +110,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-04-16T06:49:59.715Z
-Stopped at: Completed 03-01-PLAN.md
+Last session: 2026-04-16T16:17:16.658Z
+Stopped at: Completed 03-02-PLAN.md
 Resume file: None

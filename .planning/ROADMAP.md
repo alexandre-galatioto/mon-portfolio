@@ -63,7 +63,7 @@ Plans:
 **Plans**: 3 plans
 Plans:
 - [x] 03-01-PLAN.md — Image schema migration (image() helper), front matter path updates, font preload
-- [ ] 03-02-PLAN.md — Page component updates (Image component, max-width caps, cover aspect ratio fix)
+- [x] 03-02-PLAN.md — Page component updates (Image component, max-width caps, cover aspect ratio fix)
 - [x] 03-03-PLAN.md — Netlify deployment configuration and live deploy verification
 **UI hint**: yes
 

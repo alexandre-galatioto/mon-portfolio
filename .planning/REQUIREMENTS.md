@@ -45,7 +45,7 @@
 ### Design & Accessibility
 
 - [x] **DSGN-01**: Visual design is white/minimal — generous whitespace, no decorative elements, typography-led
-- [ ] **DSGN-02**: Site is fully responsive on mobile, tablet, and desktop
+- [x] **DSGN-02**: Site is fully responsive on mobile, tablet, and desktop
 - [x] **DSGN-03**: Images fill the container width on all screen sizes
 - [x] **DSGN-04**: No animations beyond nav hide/show behavior
 
@@ -107,7 +107,7 @@
 | CONT-03 | Phase 1 | Complete |
 | CONT-04 | Phase 1 | Complete |
 | DSGN-01 | Phase 1 | Complete |
-| DSGN-02 | Phase 3 | Pending |
+| DSGN-02 | Phase 3 | Complete |
 | DSGN-03 | Phase 3 | Complete |
 | DSGN-04 | Phase 1 | Complete |
 | PERF-01 | Phase 3 | Complete |
