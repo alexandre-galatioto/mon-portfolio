@@ -1,7 +1,6 @@
 ---
 title: "YSL Paris Rebel"
 description: "A comprehensive brand identity project covering logo design, typography system, and brand guidelines for a tech startup."
-cover: "../../assets/images/projects/paris-rebel/cover.jpg"
 images:
   - "../../assets/images/projects/paris-rebel/01.jpg"
   - "../../assets/images/projects/paris-rebel/02.jpg"

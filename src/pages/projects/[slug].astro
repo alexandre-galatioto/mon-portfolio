@@ -24,10 +24,10 @@ const { Content } = await render(entry);
 <BaseLayout title={`${data.title} — Alexandre Galatioto`} description={data.description}>
   <div class="project-cover">
     <Image
-      src={data.cover}
+      src={data.images[0]}
       alt={data.title}
       widths={[640, 960, 1280, 1600]}
-      sizes="(max-width: 640px) calc(100vw - 32px), min(calc(100vw - 64px), 1280px)"
+      sizes="100vw"
       format="webp"
       loading="eager"
     />
@@ -55,7 +55,7 @@ const { Content } = await render(entry);
   </section>
 
   <div class="project-gallery">
-    {data.images.map((img) => (
+    {data.images.slice(1).map((img) => (
       <Image
         src={img}
         alt=""
@@ -87,10 +87,7 @@ const { Content } = await render(entry);
 
 <style>
   .project-cover {
-    max-width: 1280px;
-    margin-inline: auto;
-    margin-top: var(--space-3xl);
-    padding-inline: var(--space-xl);
+    width: 100%;
   }
 
   .project-cover img {
@@ -180,10 +177,6 @@ const { Content } = await render(entry);
   }
 
   @media (max-width: 640px) {
-    .project-cover {
-      padding-inline: var(--space-md);
-    }
-
     .project-meta {
       grid-template-columns: 1fr;
       padding-inline: var(--space-md);

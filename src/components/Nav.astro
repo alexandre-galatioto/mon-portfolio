@@ -1,13 +1,15 @@
 ---
 // src/components/Nav.astro
-// No imports needed — pure HTML/CSS/inline script
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/' || currentPath.startsWith('/projects');
+const isAbout = currentPath === '/about' || currentPath === '/about/';
 ---
 
 <nav class="site-nav" id="site-nav">
   <a href="/" class="nav-logo">Alexandre Galatioto</a>
   <ul class="nav-links">
-    <li><a href="/work">Work</a></li>
-    <li><a href="/about">About</a></li>
+    <li><a href="/" class:list={[{ 'nav-active': isHome }]}>Work</a></li>
+    <li><a href="/about" class:list={[{ 'nav-active': isAbout }]}>About</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="nav-hamburger">
     <span class="bar"></span>
@@ -22,7 +24,7 @@
     <span class="bar bar--close-2"></span>
   </button>
   <ul class="overlay-links">
-    <li><a href="/work">Work</a></li>
+    <li><a href="/">Work</a></li>
     <li><a href="/about">About</a></li>
   </ul>
 </div>
@@ -72,9 +74,9 @@
   }
 
   /* Active link underline */
-  .nav-links a[aria-current="page"] {
-    border-bottom: 2px solid var(--color-accent);
-    padding-bottom: 2px;
+  .nav-links a.nav-active {
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
   /* Hamburger — hidden on desktop */
