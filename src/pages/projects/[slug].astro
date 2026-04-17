@@ -100,7 +100,7 @@ const { Content } = await render(entry);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-xl);
-    padding-inline: var(--space-xl);
+    padding-inline: var(--space-4xl);
     padding-block: var(--space-2xl);
     max-width: 1280px;
     margin-inline: auto;
@@ -145,7 +145,7 @@ const { Content } = await render(entry);
     max-width: 1280px;
     margin-inline: auto;
     margin-top: var(--space-lg);
-    padding-inline: var(--space-xl);
+    padding-inline: var(--space-4xl);
   }
 
   .project-gallery img {
@@ -158,7 +158,7 @@ const { Content } = await render(entry);
     display: flex;
     justify-content: space-between;
     padding-block: var(--space-2xl);
-    padding-inline: var(--space-xl);
+    padding-inline: var(--space-4xl);
     max-width: 1280px;
     margin-inline: auto;
   }
@@ -181,15 +181,15 @@ const { Content } = await render(entry);
   @media (max-width: 640px) {
     .project-meta {
       grid-template-columns: 1fr;
-      padding-inline: var(--space-md);
+      padding-inline: var(--space-lg);
     }
 
     .project-gallery {
-      padding-inline: var(--space-md);
+      padding-inline: var(--space-lg);
     }
 
     .project-nav {
-      padding-inline: var(--space-md);
+      padding-inline: var(--space-lg);
     }
   }
 </style>

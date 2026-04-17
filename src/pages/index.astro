@@ -31,7 +31,7 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-md);
-    padding-inline: var(--space-md);
+    padding-inline: var(--space-2xl);
     padding-top: var(--space-3xl);
   }
 
@@ -48,7 +48,7 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
   @media (max-width: 1024px) {
     .project-grid {
       grid-template-columns: 1fr;
-      padding-inline: var(--space-md);
+      padding-inline: var(--space-lg);
     }
   }
 </style>
