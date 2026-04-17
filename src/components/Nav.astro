@@ -6,13 +6,12 @@ const isAbout = currentPath === '/about' || currentPath === '/about/';
 ---
 
 <nav class="site-nav" id="site-nav">
-  <a href="/" class="nav-logo">Alexandre Galatioto</a>
+  <a href="/" class="nav-logo">alexandre galatioto</a>
   <ul class="nav-links">
-    <li><a href="/" class:list={[{ 'nav-active': isHome }]}>Work</a></li>
-    <li><a href="/about" class:list={[{ 'nav-active': isAbout }]}>About</a></li>
+    <li><a href="/" class:list={[{ 'nav-active': isHome }]}>work</a></li>
+    <li><a href="/about" class:list={[{ 'nav-active': isAbout }]}>about</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="nav-hamburger">
-    <span class="bar"></span>
     <span class="bar"></span>
     <span class="bar"></span>
   </button>
@@ -24,8 +23,8 @@ const isAbout = currentPath === '/about' || currentPath === '/about/';
     <span class="bar bar--close-2"></span>
   </button>
   <ul class="overlay-links">
-    <li><a href="/">Work</a></li>
-    <li><a href="/about">About</a></li>
+    <li><a href="/">work</a></li>
+    <li><a href="/about">about</a></li>
   </ul>
 </div>
 
@@ -48,8 +47,8 @@ const isAbout = currentPath === '/about' || currentPath === '/about/';
   }
 
   .nav-logo {
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
+    font-size: 32px;
+    font-weight: var(--font-weight-regular);
     color: var(--color-text);
     text-decoration: none;
   }
@@ -63,7 +62,7 @@ const isAbout = currentPath === '/about' || currentPath === '/about/';
   }
 
   .nav-links a {
-    font-size: var(--font-size-sm);
+    font-size: 16px;
     font-weight: var(--font-weight-light);
     color: var(--color-text);
     text-decoration: none;
@@ -76,7 +75,7 @@ const isAbout = currentPath === '/about' || currentPath === '/about/';
   /* Active link underline */
   .nav-links a.nav-active {
     text-decoration: underline;
-    text-underline-offset: 4px;
+    text-underline-offset: 10px;
   }
 
   /* Hamburger — hidden on desktop */
@@ -84,6 +83,7 @@ const isAbout = currentPath === '/about' || currentPath === '/about/';
     display: none;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-end;
     gap: var(--space-sm);
     width: var(--touch-target);
     height: var(--touch-target);
