@@ -16,7 +16,7 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
             src={project.data.images[0]}
             alt={project.data.title}
             widths={[640, 960, 1280, 1600]}
-            sizes="(max-width: 640px) 100vw, 50vw"
+            sizes="100vw"
             format="webp"
             loading={i === 0 ? 'eager' : 'lazy'}
           />
@@ -29,12 +29,10 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
 <style>
   .project-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm);
-    padding-inline: var(--space-xl);
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    padding-inline: var(--space-md);
     padding-top: var(--space-3xl);
-    max-width: 1280px;
-    margin-inline: auto;
   }
 
   .project-cell a {
