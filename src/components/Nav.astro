@@ -30,25 +30,16 @@ const isAbout = currentPath === '/about' || currentPath === '/about/';
 
 <style>
   .site-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
     height: var(--nav-height);
-    padding: 0 var(--space-2xl);
-    background: var(--color-bg);
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: transform 200ms ease;
-  }
-
-  .site-nav.nav--hidden {
-    transform: translateY(calc(-1 * var(--nav-height)));
   }
 
   .nav-logo {
     font-size: 32px;
-    font-weight: var(--font-weight-regular);
+    font-weight: var(--font-weight-medium);
     color: var(--color-text);
     text-decoration: none;
   }
@@ -131,8 +122,8 @@ const isAbout = currentPath === '/about' || currentPath === '/about/';
   }
 
   .overlay-links a {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-medium);
+    font-size: 32px;
+    font-weight: var(--font-weight-light);
     color: var(--color-text);
     text-decoration: none;
   }
@@ -180,25 +171,6 @@ const isAbout = currentPath === '/about' || currentPath === '/about/';
 </style>
 
 <script>
-  // Scroll hide / show (NAV-02)
-  const nav = document.getElementById('site-nav');
-  let lastScrollY = window.scrollY;
-  const SCROLL_THRESHOLD = 80;
-
-  window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY <= 0) {
-      nav?.classList.remove('nav--hidden');
-    } else if (currentScrollY > lastScrollY && currentScrollY > SCROLL_THRESHOLD) {
-      nav?.classList.add('nav--hidden');
-    } else if (currentScrollY < lastScrollY) {
-      nav?.classList.remove('nav--hidden');
-    }
-
-    lastScrollY = currentScrollY;
-  }, { passive: true });
-
   // Mobile overlay toggle (NAV-03)
   const hamburger = document.getElementById('nav-hamburger');
   const overlay = document.getElementById('nav-overlay');

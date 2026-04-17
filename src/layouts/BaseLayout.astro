@@ -30,26 +30,51 @@ const { title, description = 'Art director portfolio' } = Astro.props;
     <main>
       <slot />
     </main>
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('img').forEach((img) => observer.observe(img));
+    </script>
     <footer class="site-footer">
-      <p>Alexandre Galatioto &copy;2026</p>
+      <p>alexandre galatioto &copy;2026</p>
     </footer>
   </body>
 </html>
 
 <style>
   body {
-    padding-top: 50px;
+    --_padding-inline: 100px;
+    --_padding-top: 50px;
+    padding-top: var(--_padding-top);
     padding-bottom: 50px;
-    padding-inline: 20px;
+    padding-inline: var(--_padding-inline);
+  }
+
+  @media (max-width: 1024px) {
+    body {
+      --_padding-inline: 50px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    body {
+      --_padding-inline: 30px;
+    }
   }
 
   .site-footer {
-    background-color: var(--color-surface);
     padding-block: var(--space-lg);
     padding-inline: var(--space-xl);
     text-align: center;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
-    color: var(--color-text-muted);
+    color: var(--color-text);
   }
 </style>

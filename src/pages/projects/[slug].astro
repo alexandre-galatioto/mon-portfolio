@@ -86,8 +86,37 @@ const { Content } = await render(entry);
 </BaseLayout>
 
 <style>
+  :global(body) {
+    padding-top: 0;
+    --_padding-top: 0px;
+  }
+
+  :global(.site-nav) {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    right: 100px;
+    z-index: 100;
+  }
+
+  @media (max-width: 1024px) {
+    :global(.site-nav) {
+      left: 50px;
+      right: 50px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    :global(.site-nav) {
+      left: 30px;
+      right: 30px;
+    }
+  }
+
+
   .project-cover {
-    width: 100%;
+    width: 100vw;
+    margin-left: calc(-1 * var(--_padding-inline));
   }
 
   .project-cover img {
