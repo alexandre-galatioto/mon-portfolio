@@ -10,6 +10,7 @@ const projects = defineCollection({
     order:       z.number(),
     liveUrl:     z.string().url().optional(),
     type:        z.string(),
+    navWhite:    z.number().min(0).max(1).default(0),
   }),
 });
 

@@ -10,6 +10,7 @@ images:
 order: 3
 liveUrl: "https://example.com/acme"
 type: "Brand Identity"
+navWhite: 0
 ---
 
 Extended project description for the Acme Corp brand identity work. This content will be rendered on the project detail page in Phase 2.

@@ -69,6 +69,15 @@ const isAbout = currentPath === '/about' || currentPath === '/about/';
     text-underline-offset: 10px;
   }
 
+  :global(body[data-nav-white="1"]) .nav-logo,
+  :global(body[data-nav-white="1"]) .nav-links a {
+    color: #fff;
+  }
+
+  :global(body[data-nav-white="1"]) .bar {
+    background: #fff;
+  }
+
   /* Hamburger — hidden on desktop */
   .nav-hamburger {
     display: none;

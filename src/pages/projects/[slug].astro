@@ -21,7 +21,7 @@ const { data } = entry;
 const { Content } = await render(entry);
 ---
 
-<BaseLayout title={`${data.title} — Alexandre Galatioto`} description={data.description}>
+<BaseLayout title={`${data.title} — Alexandre Galatioto`} description={data.description} navWhite={data.navWhite}>
   <div class="project-cover">
     <Image
       src={data.images[0]}
@@ -121,18 +121,31 @@ const { Content } = await render(entry);
 
   .project-cover img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  @media (min-width: 1124px) {
+    .project-cover {
+      aspect-ratio: 1800 / 800;
+      overflow: hidden;
+    }
+  }
+
+  @media (max-width: 1123px) {
+    .project-cover {
+      height: 650px;
+      overflow: hidden;
+    }
   }
 
   .project-meta {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-xl);
-    padding-inline: var(--space-4xl);
     padding-block: var(--space-2xl);
-    max-width: 1280px;
-    margin-inline: auto;
   }
 
   .project-meta h1 {
@@ -170,11 +183,8 @@ const { Content } = await render(entry);
   .project-gallery {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xl);
-    max-width: 1280px;
-    margin-inline: auto;
+    gap: 11px;
     margin-top: var(--space-lg);
-    padding-inline: var(--space-4xl);
   }
 
   .project-gallery img {
@@ -187,9 +197,6 @@ const { Content } = await render(entry);
     display: flex;
     justify-content: space-between;
     padding-block: var(--space-2xl);
-    padding-inline: var(--space-4xl);
-    max-width: 1280px;
-    margin-inline: auto;
   }
 
   .project-nav a {
@@ -210,15 +217,31 @@ const { Content } = await render(entry);
   @media (max-width: 640px) {
     .project-meta {
       grid-template-columns: 1fr;
-      padding-inline: var(--space-lg);
-    }
-
-    .project-gallery {
-      padding-inline: var(--space-lg);
-    }
-
-    .project-nav {
-      padding-inline: var(--space-lg);
     }
   }
 </style>
+
+<script>
+  const cover = document.querySelector('.project-cover') as HTMLElement | null;
+  const img = cover?.querySelector('img') as HTMLElement | null;
+
+  if (cover && img && window.matchMedia('(min-width: 769px)').matches) {
+    const speed = 0.3;
+
+    function getMaxOffset() {
+      const containerW = cover!.clientWidth;
+      const containerH = cover!.clientHeight;
+      const naturalW = (img as HTMLImageElement).naturalWidth;
+      const naturalH = (img as HTMLImageElement).naturalHeight;
+      const scale = Math.max(containerW / naturalW, containerH / naturalH);
+      return Math.max(0, naturalH * scale - containerH);
+    }
+
+    function onScroll() {
+      const offset = Math.min(window.scrollY * speed, getMaxOffset());
+      img!.style.objectPosition = `center ${-offset}px`;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+</script>

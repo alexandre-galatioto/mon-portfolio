@@ -5,9 +5,10 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  navWhite?: number;
 }
 
-const { title, description = 'Art director portfolio' } = Astro.props;
+const { title, description = 'Art director portfolio', navWhite = 0 } = Astro.props;
 ---
 
 <!doctype html>
@@ -25,7 +26,7 @@ const { title, description = 'Art director portfolio' } = Astro.props;
     />
     <title>{title}</title>
   </head>
-  <body>
+  <body data-nav-white={navWhite}>
     <Nav />
     <main>
       <slot />
