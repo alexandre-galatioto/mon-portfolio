@@ -5,7 +5,14 @@
       "Bash(node *)",
       "Skill(gsd:execute-phase)",
       "Skill(gsd:code-review)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git add *)",
+      "Bash(git commit -m 'feat\\(03-02\\): update project page with Image component, cover fix, max-width caps *)",
+      "Bash(git commit -m 'docs\\(03-02\\): complete image component pages and max-width caps plan *)",
+      "Bash(npx astro *)",
+      "Bash(git commit -m ' *)",
+      "Bash(md5 *)",
+      "Bash(git commit *)"
     ]
   }
 }
