@@ -20,6 +20,7 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
             format="webp"
             loading={i === 0 ? 'eager' : 'lazy'}
           />
+          <span class="project-overlay">{project.data.type}</span>
         </a>
       </li>
     ))}
@@ -37,12 +38,34 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
 
   .project-cell a {
     display: block;
+    position: relative;
   }
 
   .project-cell img {
     width: 100%;
     height: auto;
     display: block;
+  }
+
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    text-transform: none;
+    background: rgba(255, 255, 255, 0);
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1.0), background 0.4s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+    pointer-events: none;
+  }
+
+  .project-cell a:hover .project-overlay {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.9);
   }
 
   @media (max-width: 1024px) {

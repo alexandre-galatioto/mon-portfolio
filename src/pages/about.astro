@@ -24,21 +24,33 @@ const { data } = entry;
       />
     </div>
     <div class="about-content">
+      <div class="about-titles">
+        {data.pageTitles.map((title) => (
+          <h1 class="about-title">{title}</h1>
+        ))}
+      </div>
       <div class="about-bio">
         <Content />
       </div>
-      <ul class="about-links">
-        {data.linkedinUrl && (
-          <li>
-            <a href={data.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </li>
+      <div class="about-contact">
+        {data.email && (
+          <div class="about-contact__col">
+            <h2>E-mail</h2>
+            <p>{data.email}</p>
+          </div>
         )}
-        {data.instagramUrl && (
-          <li>
-            <a href={data.instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a>
-          </li>
-        )}
-      </ul>
+        <div class="about-contact__col">
+          <h2>Socials</h2>
+          <ul>
+            {data.linkedinUrl && (
+              <li><a href={data.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            )}
+            {data.instagramUrl && (
+              <li><a href={data.instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            )}
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </BaseLayout>
@@ -47,12 +59,11 @@ const { data } = entry;
   .about-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-    padding-inline: var(--space-4xl);
+    gap: clamp(30px, 5vw, 100px);
+    padding-left: 50px;
+    padding-right: 100px;
     padding-top: var(--space-3xl);
     padding-bottom: var(--space-2xl);
-    max-width: 1280px;
-    margin-inline: auto;
   }
 
   .about-portrait img {
@@ -67,28 +78,75 @@ const { data } = entry;
     line-height: var(--line-height-body);
   }
 
-  .about-links {
-    margin-top: var(--space-lg);
+  .about-titles {
+    margin-top: 50px;
+    margin-bottom: var(--space-lg);
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: 10px;
   }
 
-  .about-links a {
+  .about-title {
+    font-size: 38px;
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    line-height: var(--line-height-heading);
+  }
+
+  .about-contact {
+    margin-top: var(--space-xl);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .about-contact h2 {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 4px;
+  }
+
+  .about-contact p,
+  .about-contact a {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
     color: var(--color-text);
+    line-height: 1.2;
+  }
+
+  .about-contact p {
     text-decoration: none;
   }
 
-  .about-links a:hover {
+  .about-contact a {
     text-decoration: underline;
   }
 
-  @media (max-width: 640px) {
+  .about-contact ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  @media (max-width: 800px) {
     .about-layout {
       grid-template-columns: 1fr;
-      padding-inline: var(--space-lg);
+      gap: 40px;
+    }
+
+    .about-portrait {
+      margin-left: calc(-1 * 50px);
+      margin-right: calc(-1 * 100px);
+      height: 350px;
+      overflow: hidden;
+    }
+
+    .about-titles {
+      margin-top: 0;
+    }
+
+    .about-contact {
+      grid-template-columns: 1fr;
     }
   }
 </style>

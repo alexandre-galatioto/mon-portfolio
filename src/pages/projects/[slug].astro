@@ -40,16 +40,8 @@ const { Content } = await render(entry);
     </div>
     <div class="project-meta__right">
       <p>{data.description}</p>
-      {data.liveUrl && (
-        <a
-          href={data.liveUrl}
-          class="project-demo-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`View ${data.title} project (opens in new tab)`}
-        >
-          View project
-        </a>
+      {data.agency && (
+        <p class="project-agency">{data.agency}</p>
       )}
     </div>
   </section>
@@ -74,12 +66,12 @@ const { Content } = await render(entry);
   <nav class="project-nav" aria-label="Project navigation">
     {prev && (
       <a href={`/projects/${prev.slug}`} class="project-nav__prev">
-        <span class="sr-only">Previous project: </span>{prev.data.title}
+        <span class="nav-arrow">‹</span> <span class="sr-only">Previous project: </span>{prev.data.title}
       </a>
     )}
     {next && (
       <a href={`/projects/${next.slug}`} class="project-nav__next">
-        <span class="sr-only">Next project: </span>{next.data.title}
+        <span class="sr-only">Next project: </span>{next.data.title} <span class="nav-arrow">›</span>
       </a>
     )}
   </nav>
@@ -148,36 +140,37 @@ const { Content } = await render(entry);
     padding-block: var(--space-2xl);
   }
 
+  .project-meta__left {
+    margin-right: 70px;
+  }
+
   .project-meta h1 {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-medium);
     line-height: var(--line-height-heading);
+    text-transform: uppercase;
   }
 
   .project-type {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-regular);
-    color: var(--color-text-muted);
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
     margin-top: var(--space-xs);
+    text-transform: uppercase;
   }
 
   .project-meta__right p {
-    font-size: var(--font-size-base);
+    font-size: 18px;
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-body);
+    margin-right: 100px;
   }
 
-  .project-demo-link {
-    display: inline-block;
+  .project-meta__right .project-agency {
     margin-top: var(--space-md);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-regular);
+    font-size: 18px;
+    font-weight: var(--font-weight-bold);
     color: var(--color-text);
-    text-decoration: none;
-  }
-
-  .project-demo-link:hover {
-    text-decoration: underline;
   }
 
   .project-gallery {
@@ -200,23 +193,57 @@ const { Content } = await render(entry);
   }
 
   .project-nav a {
-    font-size: var(--font-size-sm);
+    font-size: 30px;
     font-weight: var(--font-weight-regular);
     color: var(--color-text);
     text-decoration: none;
+    text-transform: uppercase;
   }
 
   .project-nav a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+  }
+
+  .nav-arrow {
+    font-size: 56px;
+    font-weight: 100;
+    font-family: system-ui, -apple-system, sans-serif;
+    transform: scaleX(0.7);
+    display: inline-block;
+    position: relative;
+    top: 4px;
+  }
+
+  .project-nav__prev {
+    margin-right: 30px;
   }
 
   .project-nav__next {
     margin-left: auto;
+    padding-left: 30px;
+  }
+
+  @media (max-width: 1024px) {
+    .project-meta__left {
+      margin-right: 50px;
+    }
+
+    .project-meta__right p {
+      margin-right: 50px;
+    }
   }
 
   @media (max-width: 640px) {
     .project-meta {
       grid-template-columns: 1fr;
+    }
+
+    .project-meta__left {
+      margin-right: 30px;
+    }
+
+    .project-meta__right p {
+      margin-right: 30px;
     }
   }
 </style>

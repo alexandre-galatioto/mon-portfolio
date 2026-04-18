@@ -8,7 +8,7 @@ const projects = defineCollection({
     description: z.string(),
     images:      z.array(image()),
     order:       z.number(),
-    liveUrl:     z.string().url().optional(),
+    agency:      z.string().optional(),
     type:        z.string(),
     navWhite:    z.number().min(0).max(1).default(0),
   }),
@@ -17,7 +17,9 @@ const projects = defineCollection({
 const about = defineCollection({
   type: 'content',
   schema: ({ image }) => z.object({
+    pageTitles:   z.array(z.string()),
     portrait:     image(),
+    email:        z.string().optional(),
     linkedinUrl:  z.string().url().optional(),
     instagramUrl: z.string().url().optional(),
   }),
