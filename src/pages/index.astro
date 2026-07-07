@@ -8,6 +8,10 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout title="Work — Alexandre Galatioto">
+  <div class="index-strip">
+    <span>Portfolio</span>
+    <span>2011—2026</span>
+  </div>
   <ul class="project-grid">
     {sorted.map((project, i) => (
       <li class="project-cell">
@@ -20,7 +24,10 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
             format="webp"
             loading={i === 0 ? 'eager' : 'lazy'}
           />
-          <span class="project-overlay">{project.data.type}</span>
+          <span class="project-overlay">
+            <span class="overlay-title">{project.data.title}</span>
+            <span class="overlay-type">{project.data.type}</span>
+          </span>
         </a>
       </li>
     ))}
@@ -28,12 +35,46 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
 </BaseLayout>
 
 <style>
+  :global(.site-footer) {
+    border-top-width: 0 !important;
+  }
+
+  .index-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    padding: 10px 16px;
+    border: var(--rule);
+    font-size: 12px;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
+
   .project-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 11px;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    gap: 0;
+    border: var(--rule);
+    border-top: none;
+    margin-bottom: 0;
+  }
+
+  .project-cell {
+    border-bottom: var(--rule);
+  }
+
+  .project-cell:nth-child(odd) {
+    border-right: calc(var(--border-width) / 2) solid var(--color-border);
+  }
+
+  .project-cell:nth-child(even) {
+    border-left: calc(var(--border-width) / 2) solid var(--color-border);
+  }
+
+  .project-cell:last-child,
+  .project-cell:nth-last-child(2):nth-child(odd) {
+    border-bottom: none;
   }
 
   .project-cell a {
@@ -51,35 +92,58 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
     position: absolute;
     inset: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text);
-    text-transform: none;
-    background: rgba(255, 255, 255, 0);
+    gap: var(--space-sm);
+    background: var(--color-text);
     opacity: 0;
-    transition: opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1.0), background 0.4s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+    transition: opacity 0.25s cubic-bezier(0.25, 0.1, 0.25, 1.0);
     pointer-events: none;
+  }
+
+  .overlay-title {
+    font-size: 32px;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--tracking-tight);
+    text-transform: uppercase;
+    color: var(--color-bg);
+    line-height: 1;
+  }
+
+  .overlay-type {
+    font-size: 12px;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-bg);
+    text-align: center;
+    padding-inline: var(--space-md);
   }
 
   .project-cell a:hover .project-overlay {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.9);
   }
 
   @media (max-width: 1024px) {
     .project-grid {
       grid-template-columns: 1fr;
-      padding-top: 50px;
-      padding-bottom: 50px;
+    }
+
+    .project-cell:nth-child(odd) {
+      border-right: none;
+    }
+
+    .project-cell:nth-child(even) {
+      border-left: none;
+    }
+
+    .project-cell:nth-last-child(2):nth-child(odd) {
+      border-bottom: var(--rule);
+    }
+
+    .project-cell:last-child {
+      border-bottom: none;
     }
   }
 
-  @media (max-width: 640px) {
-    .project-grid {
-      padding-top: 30px;
-      padding-bottom: 30px;
-    }
-  }
 </style>

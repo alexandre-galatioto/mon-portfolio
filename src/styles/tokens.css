@@ -40,4 +40,11 @@
   /* Component */
   --nav-height:            64px;
   --touch-target:          48px;
+
+  /* Brutalist editorial */
+  --border-width:          1.5px;
+  --color-border:          #111111;
+  --rule:                  var(--border-width) solid var(--color-border);
+  --tracking-wide:         0.14em;
+  --tracking-tight:        -0.02em;
 }

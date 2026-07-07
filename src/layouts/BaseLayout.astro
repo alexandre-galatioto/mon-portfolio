@@ -45,6 +45,7 @@ const { title, description = 'Art director portfolio', navWhite = 0 } = Astro.pr
     </script>
     <footer class="site-footer">
       <p>alexandre galatioto &copy;2026</p>
+      <p>Paris, FR</p>
     </footer>
   </body>
 </html>
@@ -71,10 +72,15 @@ const { title, description = 'Art director portfolio', navWhite = 0 } = Astro.pr
   }
 
   .site-footer {
-    padding-block: var(--space-lg);
-    padding-inline: var(--space-xl);
-    text-align: center;
-    font-size: var(--font-size-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: var(--rule);
+    padding-block: var(--space-md);
+    padding-inline: 0;
+    font-size: 11px;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
     font-weight: var(--font-weight-regular);
     color: var(--color-text);
   }

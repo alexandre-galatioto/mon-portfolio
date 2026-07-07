@@ -89,6 +89,7 @@ const { Content } = await render(entry);
     left: 100px;
     right: 100px;
     z-index: 100;
+    border-bottom: none;
   }
 
   @media (max-width: 1024px) {
@@ -109,6 +110,7 @@ const { Content } = await render(entry);
   .project-cover {
     width: 100vw;
     margin-left: calc(-1 * var(--_padding-inline));
+    border-bottom: var(--rule);
   }
 
   .project-cover img {
@@ -136,48 +138,63 @@ const { Content } = await render(entry);
   .project-meta {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-    padding-block: var(--space-2xl);
+    gap: 0;
+    border-bottom: 0;
   }
 
   .project-meta__left {
-    margin-right: 70px;
+    border-right: var(--rule);
+    padding-block: var(--space-xl);
+    padding-right: var(--space-xl);
   }
 
   .project-meta h1 {
     font-size: var(--font-size-xxl);
-    font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-heading);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--tracking-tight);
+    line-height: 0.95;
     text-transform: uppercase;
   }
 
   .project-type {
-    font-size: var(--font-size-xxl);
-    font-weight: var(--font-weight-medium);
+    font-size: 13px;
+    font-weight: var(--font-weight-regular);
+    letter-spacing: var(--tracking-wide);
     color: var(--color-text);
-    margin-top: var(--space-xs);
+    margin-top: var(--space-md);
     text-transform: uppercase;
   }
 
+  .project-meta__right {
+    padding-block: var(--space-xl);
+    padding-left: var(--space-xl);
+  }
+
   .project-meta__right p {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-body);
-    margin-right: 100px;
+    margin-right: 60px;
   }
 
   .project-meta__right .project-agency {
+    display: inline-block;
     margin-top: var(--space-md);
-    font-size: 18px;
-    font-weight: var(--font-weight-bold);
+    font-size: 11px;
+    font-weight: var(--font-weight-regular);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
     color: var(--color-text);
+    border-top: var(--rule);
+    padding-top: var(--space-sm);
   }
 
   .project-gallery {
     display: flex;
     flex-direction: column;
-    gap: 11px;
-    margin-top: var(--space-lg);
+    gap: 0;
+    margin-top: 0;
+    border: var(--rule);
   }
 
   .project-gallery img {
@@ -186,15 +203,22 @@ const { Content } = await render(entry);
     display: block;
   }
 
+  .project-gallery img:not(:last-child) {
+    border-bottom: var(--rule);
+  }
+
   .project-nav {
     display: flex;
     justify-content: space-between;
-    padding-block: var(--space-2xl);
+    border-top: 0;
+    margin-top: 0;
+    padding-block: var(--space-xl);
   }
 
   .project-nav a {
-    font-size: 30px;
-    font-weight: var(--font-weight-regular);
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--tracking-tight);
     color: var(--color-text);
     text-decoration: none;
     text-transform: uppercase;
@@ -202,16 +226,18 @@ const { Content } = await render(entry);
 
   .project-nav a:hover {
     text-decoration: none;
+    background: var(--color-text);
+    color: var(--color-bg);
   }
 
   .nav-arrow {
-    font-size: 56px;
+    font-size: 36px;
     font-weight: 100;
     font-family: system-ui, -apple-system, sans-serif;
     transform: scaleX(0.7);
     display: inline-block;
     position: relative;
-    top: 4px;
+    top: 3px;
   }
 
   .project-nav__prev {
@@ -224,12 +250,8 @@ const { Content } = await render(entry);
   }
 
   @media (max-width: 1024px) {
-    .project-meta__left {
-      margin-right: 50px;
-    }
-
     .project-meta__right p {
-      margin-right: 50px;
+      margin-right: 0;
     }
   }
 
@@ -239,11 +261,17 @@ const { Content } = await render(entry);
     }
 
     .project-meta__left {
-      margin-right: 30px;
+      border-right: none;
+      border-bottom: var(--rule);
+      padding-right: 0;
+    }
+
+    .project-meta__right {
+      padding-left: 0;
     }
 
     .project-meta__right p {
-      margin-right: 30px;
+      margin-right: 0;
     }
   }
 </style>
